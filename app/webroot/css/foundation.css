@@ -1,3 +1,30 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 /* Requires: normalize.css */
 /* Global Reset & Standards ---------------------- */
 *,
@@ -12,7 +39,7 @@ html {
 }
 body {
   background: white;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "lft-etica", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 14px;
@@ -132,7 +159,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "lft-etica", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-style: normal;
   color: #222222;
@@ -284,6 +311,13 @@ acronym {
 }
 abbr {
   text-transform: none;
+}
+body {
+  padding-top: 80px;
+}
+input,
+textarea {
+  outline: 0;
 }
 /* Print styles.  Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/ Credit to Paul Irish and HTML5 Boilerplate (html5boilerplate.com)
 */
@@ -454,9 +488,6 @@ textarea {
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   border-radius: 2px;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.75);
   display: block;
   font-size: 14px;
@@ -2970,12 +3001,15 @@ div.progress.round .meter {
   top: 0;
   z-index: 99;
 }
+.fixed.gray {
+  background: #444444;
+}
 /* <nav> */
 .top-bar {
-  background: #222222;
+  background: #444444;
   height: 45px;
   line-height: 45px;
-  margin: 0 0 30px;
+  margin: 0 0 0;
   padding: 0;
   width: 100%;
   position: relative;
@@ -2984,16 +3018,19 @@ div.progress.round .meter {
   max-width: 940px;
   margin: 0 auto;
 }
+.top-bar > ul .name {
+  background: #2aa5ca;
+}
 .top-bar > ul .name h1 {
   line-height: 45px;
   margin: 0;
 }
 .top-bar > ul .name h1 a {
-  font-weight: bold;
   padding: 0 22.5px;
-  font-size: 17px !important;
+  font-weight: 200;
+  font-size: 18px !important;
 }
-.top-bar > ul .name img {
+.top-bar > ul .name h1 img {
   margin-top: -5px;
   vertical-align: middle;
 }
@@ -3012,11 +3049,14 @@ div.progress.round .meter {
 }
 .top-bar ul > li {
   float: left;
-  /* Dividers between navigation */
-  /* Put a button in an <li> but give is a class */
-  /* Put a search bar or text input in the bar */
-  /* Hide the triangle for breakpoint menu */
-  /* li.has-dropdown */
+}
+.top-bar ul > li.tagline {
+  padding: 0 22.5px;
+  color: #cccccc;
+  font-size: 12px;
+}
+.top-bar ul > li.tagline:hover {
+  background: #444444 !important;
 }
 .top-bar ul > li a:not(.button) {
   color: white;
@@ -4852,4 +4892,34 @@ table.hide-for-medium {
   .top-bar ul > li.has-button a.button {
     margin: 0;
   }
+}
+.main input,
+.main textarea {
+  font: 200 13px/30px "lft-etica", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.entry-row .columns {
+  font: 200 13px/30px "lft-etica", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.start-time,
+.end-time {
+  width: 52px;
+}
+.start-time input,
+.end-time input {
+  position: relative;
+  height: 30px;
+  width: 50px;
+  left: -6px;
+  border: 1px solid #ffffff;
+  margin: 0;
+}
+.mdash {
+  height: 30px;
+}
+.start-time {
+  padding-left: 0;
+}
+.entry-row.active input,
+.entry-row.active textarea {
+  border: 1px solid #cccccc;
 }

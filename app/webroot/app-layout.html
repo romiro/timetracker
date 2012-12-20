@@ -21,61 +21,161 @@
   <link rel="stylesheet" href="css/app.css">
 
   <script src="js/modernizr.foundation.js"></script>
+  <script type="text/javascript" src="//use.typekit.net/opu2uit.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 </head>
 <body>
 
-  <div class="fixed">
-    <div class="twelve columns">
-      <nav class="top-bar">
-        <ul>
-          <!-- Title Area -->
-          <li class="name">
-            <h1>
-              <a href="#">
-                BAtTask
-              </a>
-            </h1>
-          </li>
-          <li class="toggle-topbar"><a href="#"></a></li>
-        </ul>
-
-
-      <section>
-          <!-- Left Nav Section -->
-          <ul class="left">
-            <li class="divider"></li>
-            <li class="tagline">The Blue Acorn AtTask Utility</li>
-            <li class="divider hide-for-small"></li>
-          </ul>
-
-          <!-- Right Nav Section -->
-          <ul class="right">
-            <li class="divider show-for-medium-and-up"></li>
-            <li class="has-dropdown">
-              <a href="#">Thu Dec 20 2012</a>
-              <ul class="dropdown"><li class="title back js-generated"><h5><a href="#">Item 2</a></h5></li>
-                <li><label>Last 7 Days</label></li>
-                <li><a href="#" class="">Wed Dec 19 2012</a></li>
-                <li><a href="#">Wed Dec 19 2012</a></li>
-                <li><a href="#">Tue Dec 19 2012</a></li>
-                <li><a href="#">Mon Dec 18 2012</a></li>
-                <li><a href="#">Sun Dec 17 2012</a></li>
-                <li><a href="#">Sat Dec 16 2012</a></li>
-                <li><a href="#">Fri Dec 15 2012</a></li>
-                <li><a href="#">Thu Dec 14 2012</a></li>
-                <li class="divider"></li>
-                <li><a href="#">See all →</a></li>
-              </ul>
+  <div class="fixed gray">
+    <div class="row">
+      <div class="twelve">
+        <nav class="top-bar">
+          <ul>
+            <!-- Title Area -->
+            <li class="name">
+              <h1>
+                <a href="#">
+                  BAtTask
+                </a>
+              </h1>
             </li>
+            <li class="toggle-topbar"><a href="#"></a></li>
           </ul>
-        </section></nav>
+
+
+        <section>
+            <!-- Left Nav Section -->
+            <ul class="left">
+              <li class="divider"></li>
+              <li class="tagline">The Blue Acorn AtTask Utility</li>
+              <li class="divider hide-for-small"></li>
+            </ul>
+
+            <!-- Right Nav Section -->
+            <ul class="right">
+              <li class="divider show-for-medium-and-up"></li>
+              <li class="has-dropdown">
+                <a href="#">Thu Dec 20 2012</a>
+                <ul class="dropdown"><li class="title back js-generated"><h5><a href="#">Item 2</a></h5></li>
+                  <li><label>Last 7 Days</label></li>
+                  <li><a href="#" class="">Wed Dec 19 2012</a></li>
+                  <li><a href="#">Wed Dec 19 2012</a></li>
+                  <li><a href="#">Tue Dec 19 2012</a></li>
+                  <li><a href="#">Mon Dec 18 2012</a></li>
+                  <li><a href="#">Sun Dec 17 2012</a></li>
+                  <li><a href="#">Sat Dec 16 2012</a></li>
+                  <li><a href="#">Fri Dec 15 2012</a></li>
+                  <li><a href="#">Thu Dec 14 2012</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">See all →</a></li>
+                </ul>
+              </li>
+            </ul>
+          </section></nav>
+      </div>
     </div>
   </div>
 
-  <!-- Included JS Files (Uncompressed) -->
-  <!--
-  <script src="js/jquery.js"></script><script src="js/jquery.foundation.mediaQueryToggle.js"></script><script src="js/jquery.foundation.forms.js"></script><script src="js/jquery.foundation.reveal.js"></script><script src="js/jquery.foundation.orbit.js"></script><script src="js/jquery.foundation.navigation.js"></script><script src="js/jquery.foundation.buttons.js"></script><script src="js/jquery.foundation.tooltips.js"></script><script src="js/jquery.foundation.accordion.js"></script><script src="js/jquery.placeholder.js"></script><script src="js/jquery.foundation.alerts.js"></script><script src="js/jquery.foundation.topbar.js"></script><script src="js/jquery.foundation.joyride.js"></script><script src="js/jquery.foundation.clearing.js"></script><script src="js/jquery.foundation.magellan.js"></script>
-  -->
+  <div class="row">
+    <section class="main current">
+      <!-- START FORM -->
+      <div class="row time-entry twelve columns">
+        <div class="nine column entry list">
+          <div class="row">
+            <h2>Wednesday, December 19th, 2012</h2>
+
+            <div class="twelve columns">
+              <div class="row entry-row active">
+                <div class="columns start-time">
+                  <input type="text" placeholder="0:00" value="9:25"/>
+                </div>
+                <div class="columns mdash">&mdash;</div>
+                <div class="columns end-time">
+                  <input type="text" placeholder="0:00" value="9:30" />
+                </div>
+                <div class="columns decimal-time">0.08</div>
+                <div class="columns attask row collapse">
+                  <div class="two mobile-one columns">
+                    <span class="prefix">#</span>
+                  </div>
+                  <div class="ten mobile-three columns">
+                    <input type="text" value="GO" />
+                  </div>
+                </div>
+                <div class="columns comment">
+                  <textarea placeholder="Comment">Coffee</textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="twelve columns">
+              <div class="row entry-row">
+                <div class="columns start-time">
+                  <input type="text" placeholder="0:00" value="9:25"/>
+                </div>
+                <div class="columns mdash">&mdash;</div>
+                <div class="columns end-time">
+                  <input type="text" placeholder="0:00" value="9:30" />
+                </div>
+                <div class="columns decimal-time">0.08</div>
+                <div class="columns attask row collapse">
+                  <div class="two mobile-one columns">
+                    <span class="prefix">#</span>
+                  </div>
+                  <div class="ten mobile-three columns">
+                    <input type="text" value="GO" />
+                  </div>
+                </div>
+                <div class="columns comment">
+                  <textarea placeholder="Comment">Coffee</textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="three columns row time-totals">
+          <h2>8.92 hours</h2>
+          <div class="twelve columns row">
+            <ul>
+              <li class="entry">
+                <div class="decimal-time"><span class="time">3.58</span> <span class="hours">hours</span></div>
+                <div class="attask"><a href="#"><span class="task">28758</span> <span class="arrow">&rarr;</span></a></div>
+              </li>
+              <li class="entry">
+                <div class="decimal-time"><span class="time">1.75</span> <span class="hours">hours</span></div>
+                <div class="attask"><a href="#"><span class="task">28900</span> <span class="arrow">&rarr;</span></a></div>
+              </li>
+              <li class="entry">
+                <div class="decimal-time"><span class="time">1.08</span> <span class="hours">hours</span></div>
+                <div class="attask timesheet"><a href="#"><span class="task">General Overhead</span> <span class="arrow">&rarr;</span></a></div>
+              </li>
+              <li class="entry">
+                <div class="decimal-time"><span class="time">1</span> <span class="hours">hour</span></div>
+                <div class="attask lunch"><a href="#"><span class="task">Eating</span> <span class="arrow">&rarr;</span></a></div>
+              </li>
+              <li class="entry">
+                <div class="decimal-time"><span class="time">1</span> <span class="hours">hour</span></div>
+                <div class="attask"><a href="#"><span class="task">26684</span> <span class="arrow">&rarr;</span></a></div>
+              </li>
+              <li class="entry">
+                <div class="decimal-time"><span class="time">0.75</span> <span class="hours">hour</span></div>
+                <div class="attask"><a href="#"><span class="task">26863</span> <span class="arrow">&rarr;</span></a></div>
+              </li>
+              <li class="entry">
+                <div class="decimal-time"><span class="time">0.25</span> <span class="hours">hours</span></div>
+                <div class="attask"><a href="#"><span class="task">27014</span> <span class="arrow">&rarr;</span></a></div>
+              </li>
+              <li class="entry">
+                <div class="decimal-time"><span class="time">0.25</span> <span class="hours">hours</span></div>
+                <div class="attask"><a href="#"><span class="task">15500</span> <span class="arrow">&rarr;</span></a></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <!-- Included JS Files (Compressed) -->
   <script src="js/jquery.js"></script>
