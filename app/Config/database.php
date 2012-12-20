@@ -60,14 +60,14 @@
 class DATABASE_CONFIG {
 
 	public $default = array(
-		'datasource' => 'Database/Sqlite',
+		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-//		'host' => 'localhost',
-//		'login' => 'user',
-//		'password' => 'password',
-		'database' => '',
+		'host' => 'localhost',
+		'login' => 'web',
+		'password' => 'public',
+		'database' => 'battask',
 		'prefix' => '',
-		//'encoding' => 'utf8',
+		'encoding' => 'utf8',
 	);
 
 	public $test = array(
@@ -81,8 +81,4 @@ class DATABASE_CONFIG {
 		//'encoding' => 'utf8',
 	);
 
-    public function __construct()
-    {
-        $this->default['database'] = APP . 'Config' . DS . 'sqlite' . DS . 'timetracker.sqlite';
-    }
 }
