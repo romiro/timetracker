@@ -33,6 +33,7 @@ class EntriesController extends AppController
         $entry['Entry']['day'] = date('Y-m-d', strtotime($data['day']));
 
         $this->Entry->save($entry);
+        $this->render('ajax');
     }
 
     /**
@@ -56,7 +57,7 @@ class EntriesController extends AppController
         $this->render('ajax');
     }
 
-    public function ajaxTodayEntries()
+    public function ajaxDayEntries()
     {
         $this->layout = 'ajax';
 
