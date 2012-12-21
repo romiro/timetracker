@@ -19,8 +19,13 @@
             <div class="two mobile-one columns">
                 <span class="prefix">#</span>
             </div>
-            <div class="ten mobile-three columns">
-                <input type="text" name="data[attask_id]" value="<?php echo $entry['Task']['attask_id']?>" />
+            <div class="ten mobile-three columns attask-id">
+                <input type="text" value="<?php echo $entry['Task']['hour_type']?>" />
+                <ul class="alt-tasks flyout">
+                    <li class="general-overhead"><a href="#">General Overhead</a></li>
+                    <li class="lunch"><a href="#">Lunch</a></li>
+                    <li class="ooo"><a href="#">Out of Office</a></li>
+                </ul>
             </div>
         </div>
         <input type="hidden" name="attask" value="" />
