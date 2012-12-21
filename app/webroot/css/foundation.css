@@ -4246,6 +4246,7 @@ textarea:-moz-placeholder {
   margin: 0;
 }
 .time-totals ul {
+  display: none;
   float: right;
   list-style-type: none;
 }

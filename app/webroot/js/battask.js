@@ -137,6 +137,7 @@ $(function(){
                 $('#TodayEntries').html(data);
                 $.Battask.processEntryRow($('.entry-row'));
                 $.Battask.observeEntryRow();
+                $.Battask.populateTaskList();
             }
         });
     };
@@ -162,7 +163,6 @@ $(function(){
         var taskType, fieldValue, hiddenValue, hiddenInput, inputField;
 
         taskType = selectedType.parents('li').attr('class');
-        hiddenInput = selectedType.parents('.attask').next('input[type=hidden]');
         inputField = selectedType.parents('.attask').find('input[type=text]');
 
         switch(taskType)
@@ -182,7 +182,6 @@ $(function(){
         }
 
         inputField.val(fieldValue);
-        hiddenInput.val(fieldValue);
 
     }
 
