@@ -37,4 +37,15 @@ class EntriesController extends AppController
         ));
         $this->render('ajax');
     }
+
+    public function ajaxTodayEntries()
+    {
+        $this->layout = 'ajax';
+        $todayAtMidnight = date(MYSQL_DATE_FORMAT, strtotime(date('Y-m-d')));
+
+        $entries = $this->Entry->find('all', array(
+            'conditions' => array(
+                'start_time > ?' => $todayAtMidnight),
+            'order' => 'start_time asc'));
+    }
 }

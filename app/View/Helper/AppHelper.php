@@ -30,5 +30,15 @@ App::uses('Helper', 'View');
  *
  * @package       app.View.Helper
  */
-class AppHelper extends Helper {
+class AppHelper extends Helper
+{
+    public function getLastDays($numDays = 7, $format = 'D M d Y')
+    {
+        $days = array();
+        $today = date('Y-m-d');
+        for ($i=1; $i<=$numDays; $i++) {
+            $days[] = date($format, strtotime($today . "-$i day"));
+        }
+        return $days;
+    }
 }

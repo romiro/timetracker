@@ -1,58 +1,80 @@
 <?php
-/**
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       Cake.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
 $appTitle = 'BAtTask'
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
+
 	<?php echo $this->Html->charset(); ?>
 	<title>
 		<?php echo $appTitle ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+    <meta name="viewport" content="width=device-width" />
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+//		echo $this->Html->css('cake.generic');
+        echo $this->Html->css('foundation');
+        echo $this->Html->css('app');
+
         echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
-        echo $this->Html->script('app');
+//        echo $this->Html->script('app');
+        echo $this->Html->script('modernizr.foundation.js');
+        echo $this->Html->script('//use.typekit.net/opu2uit.js');
+        echo $this->Html->script('battask');
 
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($appTitle, FULL_BASE_URL); ?></h1>
-		</div>
-		<div id="content">
+    <div class="fixed gray">
+        <div class="row">
+            <div class="twelve">
+                <nav class="top-bar">
+                    <ul>
+                        <!-- Title Area -->
+                        <li class="name">
+                            <h1>
+                                <a href="#">
+                                    BAtTask
+                                </a>
+                            </h1>
+                        </li>
+                        <li class="toggle-topbar"><a href="#"></a></li>
+                    </ul>
 
-			<?php echo $this->Session->flash(); ?>
 
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
+                    <section>
+                        <!-- Left Nav Section -->
+                        <ul class="left">
+                            <li class="divider"></li>
+                            <li class="tagline">The Blue Acorn AtTask Utility</li>
+                            <li class="divider hide-for-small"></li>
+                        </ul>
 
-		</div>
-	</div>
+                        <!-- Right Nav Section -->
+                        <ul class="right">
+                            <li class="divider show-for-medium-and-up"></li>
+                            <?php echo $this->element('header_dates')?>
+                        </ul>
+                    </section></nav>
+            </div>
+        </div>
+    </div>
+
+    <?php echo $this->Session->flash(); ?>
+
+    <div class="row">
+        <?php echo $this->fetch('content'); ?>
+    </div>
+
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

@@ -5,7 +5,8 @@ $(function(){
     {
         $('.entry-row').removeClass('active');
         $.Battask.observeEntryRow();
-    }
+        $.Battask.getTodayEntries();
+    };
 
     $.Battask.observeEntryRow = function()
     {
@@ -15,13 +16,13 @@ $(function(){
             $(this).parents('.entry-row').removeClass('active');
             $.Battask.processEntryRow($(this).parents('.entry-row'));
         });
-    }
+    };
 
     $.Battask.processEntryRow = function(currentRow)
     {
         $.Battask.updateDecimals(currentRow);
         $.Battask.calculateTotalTime();
-    }
+    };
 
     $.Battask.updateDecimals = function(currentRow)
     {
@@ -31,7 +32,7 @@ $(function(){
         if(startTime.val() !== '' && endTime.val() !== ''){
             decTime.html($.Battask.calculateTime(startTime.val(), endTime.val()));
         }
-    }
+    };
 
     $.Battask.calculateTime = function(startTime, endTime){
         var convertToSecondsBase, convertToSecondsExtra, compareTimes, firstTime, secondTime, finalTime;
@@ -59,7 +60,7 @@ $(function(){
                 bool = false;
             }
             return bool;
-        }
+        };
 
         firstTime = convertToSecondsBase(startTime);
 
@@ -72,7 +73,7 @@ $(function(){
         }
 
         return finalTime;
-    }
+    };
 
     $.Battask.calculateTotalTime = function(){
         var currentDate, rowTotals, currentTotal, currentDateTotal, hourType;
@@ -90,7 +91,20 @@ $(function(){
             hourType = 'hour';
         }
         currentDateTotal.html(runningTotal + ' ' + hourType);
-    }
+    };
+
+    //Ajax Rendering
+    $.Battask.getTodayEntries = function()
+    {
+        $.ajax({
+            type: 'post',
+            url: '/entries/ajaxTodayEntries',
+            success: function(data){
+                $('#TodayEntries').html(data);
+                $.Battask.observeEntryRow();
+            }
+        });
+    };
 
     $(window).load(function(){
         $.Battask.initialize();
