@@ -22,10 +22,11 @@ class EntriesController extends AppController
         $this->layout = 'ajax';
         $data = $this->request->data;
         $entry = array('Entry'=>array());
-
+        $isNewTask = true;
         //If an id is passed, Entry already exists, otherwise will create a new record
         if (!empty($data['id'])) {
             $entry['Entry']['id'] = $data['id'];
+            $isNewTask = false;
         }
 
         $entry['Entry']['comment'] = $data['comment'];
@@ -44,6 +45,13 @@ class EntriesController extends AppController
         $entry['Entry']['task_id'] = $taskId;
 
         $this->Entry->save($entry);
+
+        if ($isNewTask) {
+            $this->set('json', array(
+                'id' => $this->Entry->getLastInsertId()
+            ));
+        }
+
         $this->render('ajax');
     }
 
@@ -77,4 +85,10 @@ class EntriesController extends AppController
         $this->set('entries', $entries);
         $this->set('day', date('l, F jS, Y'));
     }
+
+    public function ajaxGetEntryTemplate()
+    {
+        $this->layout = 'ajax';
+    }
+
 }

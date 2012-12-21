@@ -21,12 +21,21 @@ $(function(){
 
         // Ajax update on input blur
         $('.entry-row :input').blur(function(evt){
-            var data = $(this).parents('.entry-row').find(':input').serializeArray();
+            var $parent = $(this).parents('.entry-row');
+            var data = $parent.find(':input').serializeArray();
             data.push($('#Day').serializeArray()[0]);
             $.ajax({
                 type: 'post',
                 url: '/entries/ajaxUpdateAll',
+                dataType: 'json',
                 data: data,
+                success: function(data){
+                    //Set id of new entry if a new one was created
+                    if(data) {
+                        $parent.find('input.id').val(data['id']);
+                        $.Battask.addEntryTemplate();
+                    }
+                },
                 error: function(data){
                     alert('Update failed. CONTACT SUPPORT!')
                 }
@@ -186,7 +195,18 @@ $(function(){
 
         inputField.val(fieldValue);
 
-    }
+    };
+
+    $.Battask.addEntryTemplate = function()
+    {
+        $.ajax({
+            url: '/entries/ajaxGetEntryTemplate',
+            success: function(data){
+                $('#TodayEntries').append(data);
+            }
+        });
+    };
+
 
     //Observer for date picker
     $('#DatePicker .dropdown li.date').click(function(){

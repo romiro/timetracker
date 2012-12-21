@@ -1,6 +1,6 @@
 <div class="twelve columns">
     <div class="row entry-row new">
-        <input type="hidden" name="data[id]" value="<?php echo $entry['Entry']['id']?>" />
+        <input type="hidden" name="data[id]" class="id" value="" />
         <div class="columns start-time">
             <input type="text" name="data[start_time]" placeholder="0:00" value="" />
         </div>
@@ -15,7 +15,7 @@
                 <span class="prefix">#</span>
             </div>
             <div class="ten mobile-three columns attask-id">
-                <input type="text" value="data[attask_id]" />
+                <input type="text" name="data[attask_id]" />
                 <ul class="alt-tasks flyout">
                     <li class="general-overhead"><a href="#">General Overhead</a></li>
                     <li class="lunch"><a href="#">Lunch</a></li>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="columns comment">
-            <textarea placeholder="Comment" name="data[comment]"><?php echo $entry['Entry']['comment']?></textarea>
+            <textarea placeholder="Comment" name="data[comment]"></textarea>
         </div>
     </div>
 </div>

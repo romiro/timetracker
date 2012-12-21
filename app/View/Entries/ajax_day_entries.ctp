@@ -5,7 +5,7 @@
 <?php foreach($entries as $entry):?>
 <div class="twelve columns">
     <div class="row entry-row">
-        <input type="hidden" name="data[id]" value="<?php echo $entry['Entry']['id']?>" />
+        <input type="hidden" name="data[id]" class="id" value="<?php echo $entry['Entry']['id']?>" />
         <div class="columns start-time">
             <input type="text" name="data[start_time]" placeholder="0:00" value="<?php echo $entry['Entry']['start_time_hours']?>" />
         </div>
@@ -36,6 +36,8 @@
 </div>
 <?php endforeach?>
 
+<?php echo $this->element('ajax_new_entries')?>
+<?php /*
 <div style="clear:both"></div>
 <button type="button" id="TestButton">(Test) Aggregate list</button>
 <script type="text/javascript">
@@ -49,3 +51,4 @@
         });
     });
 </script>
+ */?>
