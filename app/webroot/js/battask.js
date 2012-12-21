@@ -18,6 +18,17 @@ $(function(){
             $.Battask.processEntryRow($(this).parents('.entry-row'));
         });
 
+        // Ajax update on input blur
+        $('.entry-row :input').blur(function(evt){
+            var data = $(this).parents('.entry-row').find(':input').serializeArray();
+            data.push($('#Day').serializeArray()[0]);
+            $.ajax({
+                type: 'post',
+                url: '/entries/ajaxUpdateAll',
+                data: data
+            });
+        });
+
         // Task Id Observes
         $('.attask-id input[type=text]').focus(function(){
             $.Battask.altTaskFlyout($(this), 'show');
