@@ -64,9 +64,3 @@
         });
     });
 </script>
-
-
-<?php
-pr($entries);
-
-?>

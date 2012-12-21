@@ -45,7 +45,11 @@ class EntriesController extends AppController
 
         $entries = $this->Entry->find('all', array(
             'conditions' => array(
-                'start_time > ?' => $todayAtMidnight),
+//                'start_time > ?' => $todayAtMidnight
+            ),
             'order' => 'start_time asc'));
+
+        $this->set('entries', $entries);
+        $this->set('today', date('l, F jS, Y'));
     }
 }

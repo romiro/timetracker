@@ -4,7 +4,7 @@
         <li><label>Last 7 Days</label></li>
         <?php foreach($this->App->getLastDays() as $day):?>
             <li><a href="#"><?php echo $day ?></a></li>
-        <?endforeach?>
+        <?php endforeach?>
         <li class="divider"></li>
         <li><a href="#">See all →</a></li>
     </ul>
