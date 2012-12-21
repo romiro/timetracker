@@ -39,14 +39,17 @@ $(function(){
         // Task Id Flyout Children Event Observer
 
         $('.alt-tasks a').mousedown(function(evt){
-            $.Battask.udpateAttaskInputs($(evt.target));
+            $.Battask.updateAttaskInputs($(evt.target));
         });
 
     };
 
     $.Battask.processEntryRow = function(currentRow)
     {
-        $.Battask.updateDecimals(currentRow);
+        currentRow.each(function(){
+            $.Battask.updateDecimals($(this));
+            $.Battask.updateAttaskLoad($(this));
+        });
         $.Battask.calculateTotalTime();
     };
 
@@ -71,7 +74,7 @@ $(function(){
         convertToSecondsExtra = function(time)
         {
             var splitTime = time.split(/\D+/);
-            console.log(Math.floor(splitTime[0])+12);
+            //console.log(Math.floor(splitTime[0])+12);
             return ((Math.floor(splitTime[0])+12) * 60 * 60) + (splitTime[1] * 60);
         };
 
@@ -116,7 +119,7 @@ $(function(){
         }else{
             hourType = 'hour';
         }
-        currentDateTotal.html(runningTotal + ' ' + hourType);
+        currentDateTotal.html((runningTotal).toFixed(2) + ' ' + hourType);
     };
 
     //Ajax Rendering
@@ -154,44 +157,67 @@ $(function(){
 
     }
 
+    $.Battask.updateAttaskLoad = function(currentRow)
+    {
+        var fieldValue, inputField, hiddenValue;
+        inputField = currentRow.find('.attask input[type=text]');
+        console.log(inputField);
+        hiddenValue = currentRow.find('.attask input[type=hidden]').val();
+
+        if(hiddenValue <= 4){
+            switch(taskType)
+            {
+                case 1:
+                    fieldValue  = 'GO';
+                    break;
+                case 2:
+                    fieldValue = 'Lunch';
+                    break;
+                case 3:
+                    fieldValue = 'OOO';
+                    break;
+                case 4:
+                    fieldValue = 'Vacation';
+                    break;
+            }
+        }else{
+            fieldValue = hiddenValue;
+        }
+
+        inputField.val(fieldValue);
+    }
+
     $.Battask.updateAttaskInputs = function(selectedType)
     {
-        var taskType, fieldValue, hiddenValue, hiddenInput;
+        var taskType, fieldValue, hiddenValue, hiddenInput, inputField;
 
         taskType = selectedType.parents('li').attr('class');
-        console.log(taskType);
+        hiddenInput = selectedType.parents('.attask').find('input[type=hidden]');
+        inputField = selectedType.parents('.attask').find('input[type=text]');
 
-        // Update Input Field
+        switch(taskType)
+        {
+            case 'general-overhead':
+                fieldValue  = 'GO';
+                hiddenValue = 1;
+                break;
+            case 'lunch':
+                fieldValue = 'Lunch';
+                hiddenValue = 2;
+                break;
+            case 'ooo':
+                fieldValue = 'OOO';
+                hiddenValue = 3;
+                break;
+            case 'vacation':
+                fieldValue = 'Vacation';
+                hiddenValue = 4;
+                break;
+        }
 
+        inputField.val(fieldValue);
+        hiddenInput.val(fieldValue);
 
-        //     var taskType, fieldValue, hiddenValue, hiddenInput;
-
-        //     hiddenInput = $(this).parents('.attask').find('input[name="attask"]');
-
-        //     switch(taskType)
-        //     {
-        //         case 'general-overhead':
-        //             fieldValue  = 'GO';
-        //             hiddenValue = 1;
-        //             break;
-        //         case 'lunch':
-        //             fieldValue = 'Lunch';
-        //             hiddenValue = 2;
-        //             break;
-        //         case 'ooo':
-        //             fieldValue = 'OOO';
-        //             hiddenValue = 3;
-        //             break;
-        //         case 'vacation':
-        //             fieldValue = 'Vacation';
-        //             hiddenValue = 4;
-        //             break;
-        //     }
-
-        //     inputField.val() = fieldValue;
-        //     hiddenInput.val() = hiddenValue;
-
-        // });
     }
 
     //Observer for date picker
