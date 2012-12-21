@@ -1286,6 +1286,37 @@ input:-moz-placeholder, textarea:-moz-placeholder {
       }
     }
   }
+  .alt-tasks {
+    display: none;
+    position: absolute;
+    top: 29px;
+    left: -13px;
+    z-index: 999;
+    .box-shadow(0 0 0 #000);
+    border: 0;
+    border-bottom: 1px solid #d9d9d9;
+    width: 120px;
+    li {
+      border-left-width: 1px;
+      a {
+        color: @blueDark;
+        font-size: 12px;
+        padding: 8px 5px;
+        &:hover {
+          background: @blue;
+          color: @white;
+        }
+      }
+    }
+  }
+  .attask-id {
+    position: relative;
+    &.show {
+      .alt-tasks {
+        display: block;
+      }
+    }
+  }
 }
 
 .entry {

@@ -10,12 +10,21 @@ $(function(){
 
     $.Battask.observeEntryRow = function()
     {
+        // Input Observers
         $('.entry-row input, .entry-row textarea').focus(function(){
             $(this).parents('.entry-row').addClass('active');
         }).blur(function(){
             $(this).parents('.entry-row').removeClass('active');
             $.Battask.processEntryRow($(this).parents('.entry-row'));
         });
+
+        // Task Id Observes
+        $('.attask-id input[type=text]').focus(function(){
+            $.Battask.altTaskFlyout($(this), 'show');
+        }).blur(function(){
+            $.Battask.altTaskFlyout($(this), 'hide');
+        });
+
     };
 
     $.Battask.processEntryRow = function(currentRow)
@@ -110,6 +119,45 @@ $(function(){
     $.Battask.populateTaskList = function()
     {
 
+    }
+
+    $.Battask.altTaskFlyout = function(currentInput, state)
+    {
+        // Show or Hide Flyout
+        if(state == 'show'){
+            currentInput.parents('.attask-id').addClass('show');
+        }else{
+            currentInput.parents('.attask-id').removeClass('show');
+        }
+
+        var inputField = currentInput;
+        // Update Input Field
+        currentInput.next('.alt-tasks a').click(function(){
+            var taskType, fieldValue, hiddenValue, hiddenInput;
+            taskType = $(this).parents('li').attr('class');
+            hiddenInput = $(this).parents('.attask').find('input[name=""]')
+            switch(taskType)
+            {
+                case 'general-overhead':
+                    fieldValue  = 'GO';
+                    hiddenValue = 1;
+                    break;
+                case 'lunch':
+                    fieldValue = 'Lunch';
+                    hiddenValue = 2;
+                    break;
+                case 'ooo':
+                    fieldValue = 'OOO';
+                    hiddenValue = 3;
+                    break;
+                case 'vacation':
+                    fieldValue = 'Vacation';
+                    hiddenValue = 4;
+                    break;
+            }
+
+
+        });
     }
 
     $(window).load(function(){

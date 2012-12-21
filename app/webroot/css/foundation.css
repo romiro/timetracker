@@ -4194,6 +4194,37 @@ textarea:-moz-placeholder {
 .entry-row.new .comment textarea {
   height: 60px;
 }
+.entry-row .alt-tasks {
+  display: none;
+  position: absolute;
+  top: 29px;
+  left: -13px;
+  z-index: 999;
+  -webkit-box-shadow: 0 0 0 #000000;
+  -moz-box-shadow: 0 0 0 #000000;
+  box-shadow: 0 0 0 #000000;
+  border: 0;
+  border-bottom: 1px solid #d9d9d9;
+  width: 120px;
+}
+.entry-row .alt-tasks li {
+  border-left-width: 1px;
+}
+.entry-row .alt-tasks li a {
+  color: #2183a0;
+  font-size: 12px;
+  padding: 8px 5px;
+}
+.entry-row .alt-tasks li a:hover {
+  background: #2aa5ca;
+  color: #ffffff;
+}
+.entry-row .attask-id {
+  position: relative;
+}
+.entry-row .attask-id.show .alt-tasks {
+  display: block;
+}
 .entry h2 {
   position: relative;
 }
