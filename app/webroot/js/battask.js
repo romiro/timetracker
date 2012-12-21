@@ -156,8 +156,7 @@ $(function(){
     {
         var fieldValue, inputField, hiddenValue;
         inputField = currentRow.find('.attask input[type=text]');
-        console.log(inputField);
-        hiddenValue = currentRow.find('.attask input[type=hidden]').val();
+        hiddenValue = currentRow.find('.attask').next('input[type=hidden]').val();
 
         if(hiddenValue <= 4){
             switch(taskType)
@@ -187,7 +186,7 @@ $(function(){
         var taskType, fieldValue, hiddenValue, hiddenInput, inputField;
 
         taskType = selectedType.parents('li').attr('class');
-        hiddenInput = selectedType.parents('.attask').find('input[type=hidden]');
+        hiddenInput = selectedType.parents('.attask').next('input[type=hidden]');
         inputField = selectedType.parents('.attask').find('input[type=text]');
 
         switch(taskType)
