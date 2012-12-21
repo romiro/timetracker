@@ -30,6 +30,8 @@ $appTitle = 'BAtTask'
 
 		echo $this->Html->css('cake.generic');
         echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
+        echo $this->Html->script('app');
+
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');

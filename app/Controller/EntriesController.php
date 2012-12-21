@@ -21,4 +21,21 @@ class EntriesController extends AppController
 
         $this->set('entries', $entries);
     }
+
+    public function ajaxUpdate()
+    {
+        $id = $this->request->data['id'];
+        $taskId = $this->request->data['task_id'];
+        $field = $this->request->data['field'];
+        $value = $this->request->data['value'];
+
+
+        $this->Entry->save(array(
+            'Entry' => array(
+                'id' => $id,
+                $field => $value
+            )
+        ));
+        $this->render('ajax');
+    }
 }
