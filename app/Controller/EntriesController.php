@@ -22,8 +22,14 @@ class EntriesController extends AppController
         $this->set('entries', $entries);
     }
 
-    public function ajaxUpdate()
+    public function ajaxUpdateAll()
     {
+
+    }
+
+    public function ajaxUpdateField()
+    {
+        $this->layout = 'ajax';
         $id = $this->request->data['id'];
         $field = $this->request->data['field'];
         $value = $this->request->data['value'];
