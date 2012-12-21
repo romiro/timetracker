@@ -22,6 +22,7 @@ class EntriesController extends AppController
         $this->layout = 'ajax';
         $data = $this->request->data;
         $entry = array('Entry'=>array());
+
         //If an id is passed, Entry already exists, otherwise will create a new record
         if (!empty($data['id'])) {
             $entry['Entry']['id'] = $data['id'];
@@ -32,35 +33,34 @@ class EntriesController extends AppController
         $entry['Entry']['end_time'] = $data['end_time'];
         $entry['Entry']['day'] = date('Y-m-d', strtotime($data['day']));
 
-        //TODO: Lookup for an existing task to relate to attask_id, create if doesnt exist
         $task = $this->Task->find('first', array('conditions'=>array('attask_id'=>$data['attask_id'])));
-
+        if (empty($task)) {
+            $this->Task->save(array('Task'=>array('attask_id'=>$data['attask_id'])));
+            $taskId = $this->Task->getLastInsertId();
+        }
+        else {
+            $taskId = $task['Task']['id'];
+        }
+        $entry['Entry']['task_id'] = $taskId;
 
         $this->Entry->save($entry);
         $this->render('ajax');
     }
 
     /**
-     * Update single field of an entry via Ajax
-     * (possibly will not be used)
+     * Render hours aggregate list
      */
-    public function ajaxUpdateField()
+    public function ajaxAggregateList()
     {
         $this->layout = 'ajax';
-        $id = $this->request->data['id'];
-        $field = $this->request->data['field'];
-        $value = $this->request->data['value'];
 
 
-        $this->Entry->save(array(
-            'Entry' => array(
-                'id' => $id,
-                $field => $value
-            )
-        ));
         $this->render('ajax');
     }
 
+    /**
+     * Renders the content of entries index page
+     */
     public function ajaxDayEntries()
     {
         $this->layout = 'ajax';

@@ -26,7 +26,10 @@ $(function(){
             $.ajax({
                 type: 'post',
                 url: '/entries/ajaxUpdateAll',
-                data: data
+                data: data,
+                error: function(data){
+                    alert('Update failed. CONTACT SUPPORT!')
+                }
             });
         });
 

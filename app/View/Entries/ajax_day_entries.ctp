@@ -20,7 +20,7 @@
                 <span class="prefix">#</span>
             </div>
             <div class="ten mobile-three columns attask-id">
-                <input type="text" value="some" name="slut" />
+                <input type="text" name="data[attask_id]" value="<?php echo $entry['Task']['attask_id']?>" />
                 <ul class="alt-tasks flyout">
                     <li class="general-overhead"><a href="#">General Overhead</a></li>
                     <li class="lunch"><a href="#">Lunch</a></li>
@@ -29,7 +29,6 @@
                 </ul>
             </div>
         </div>
-        <input type="hidden" name="data[attask_id]" value="<?php echo $entry['Task']['attask_id']?>" />
         <div class="columns comment">
             <textarea placeholder="Comment" name="data[comment]"><?php echo $entry['Entry']['comment']?></textarea>
         </div>
@@ -38,4 +37,15 @@
 <?php endforeach?>
 
 <div style="clear:both"></div>
-<button type="button" id="TestButton">(Test) Entry Update Ajax</button>
+<button type="button" id="TestButton">(Test) Aggregate list</button>
+<script type="text/javascript">
+    $('#TestButton').click(function(){
+        $.ajax({
+            url: '/entries/ajaxAggregateList',
+            data: {},
+            success: function(){
+
+            }
+        });
+    });
+</script>
