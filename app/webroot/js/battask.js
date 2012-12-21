@@ -5,7 +5,7 @@ $(function(){
     {
         $('.entry-row').removeClass('active');
         $.Battask.observeEntryRow();
-        $.Battask.getTodayEntries();
+        $.Battask.getDayEntries();
     };
 
     $.Battask.observeEntryRow = function()
@@ -120,11 +120,11 @@ $(function(){
     };
 
     //Ajax Rendering
-    $.Battask.getTodayEntries = function()
+    $.Battask.getDayEntries = function(date)
     {
         $.ajax({
             type: 'post',
-            url: '/entries/ajaxTodayEntries',
+            url: '/entries/ajaxDayEntries',
             success: function(data){
                 $('#TodayEntries').html(data);
                 $.Battask.processEntryRow($('.entry-row'));
@@ -188,6 +188,11 @@ $(function(){
 
         // });
     }
+
+    //Observer for date picker
+    $('#DatePicker .dropdown li.date').click(function(){
+        console.log(this);
+    });
 
     $(window).load(function(){
         $.Battask.initialize();
