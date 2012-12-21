@@ -29,7 +29,7 @@
                 </ul>
             </div>
         </div>
-        <input type="hidden" name="data[attask]" value="<?php echo $entry['Task']['attask_id']?>" />
+        <input type="hidden" name="data[attask_id]" value="<?php echo $entry['Task']['attask_id']?>" />
         <div class="columns comment">
             <textarea placeholder="Comment" name="data[comment]"><?php echo $entry['Entry']['comment']?></textarea>
         </div>
@@ -39,20 +39,3 @@
 
 <div style="clear:both"></div>
 <button type="button" id="TestButton">(Test) Entry Update Ajax</button>
-
-<script type="text/javascript">
-
-    $('#TestButton').click(function(){
-        var $first = $('.entry-row').eq(4);
-        var data = $first.find(':input').serializeArray();
-        data.push($('#Day').serializeArray()[0]);
-        $.ajax({
-            type: 'post',
-            url: '/entries/ajaxUpdateAll',
-            data: data
-        });
-    });
-
-
-</script>
-<?php pr($entries)?>

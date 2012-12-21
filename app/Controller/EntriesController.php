@@ -32,6 +32,10 @@ class EntriesController extends AppController
         $entry['Entry']['end_time'] = $data['end_time'];
         $entry['Entry']['day'] = date('Y-m-d', strtotime($data['day']));
 
+        //TODO: Lookup for an existing task to relate to attask_id, create if doesnt exist
+        $task = $this->Task->find('first', array('conditions'=>array('attask_id'=>$data['attask_id'])));
+
+
         $this->Entry->save($entry);
         $this->render('ajax');
     }

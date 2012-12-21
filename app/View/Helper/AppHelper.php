@@ -32,10 +32,18 @@ App::uses('Helper', 'View');
  */
 class AppHelper extends Helper
 {
-    public function getLastDays($numDays = 7, $format = 'D M d Y')
+    public $dropDownDateFormat = 'D M d Y';
+
+    public function getToday()
     {
+        return date($this->dropDownDateFormat);
+    }
+
+    public function getLastDays($numDays = 7, $format = '')
+    {
+        if (empty($format)) $format = $this->dropDownDateFormat;
         $days = array();
-        $today = date('Y-m-d');
+        $today = $this->getToday();
         for ($i=0; $i<=$numDays; $i++) {
             $days[] = date($format, strtotime($today . "-$i day"));
         }
