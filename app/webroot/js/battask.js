@@ -125,9 +125,14 @@ $(function(){
     //Ajax Rendering
     $.Battask.getDayEntries = function(date)
     {
+        var data = [];
+        if (date) {
+            data.push({name:'date', value:date});
+        }
         $.ajax({
             type: 'post',
             url: '/entries/ajaxDayEntries',
+            data: data,
             success: function(data){
                 $('#TodayEntries').html(data);
                 $.Battask.processEntryRow($('.entry-row'));
@@ -216,7 +221,7 @@ $(function(){
 
     //Observer for date picker
     $('#DatePicker .dropdown li.date').click(function(){
-        console.log(this);
+        $.Battask.getDayEntries($(this).text());
     });
 
     $(window).load(function(){

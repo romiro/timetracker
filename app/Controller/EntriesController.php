@@ -60,11 +60,14 @@ class EntriesController extends AppController
     public function ajaxDayEntries()
     {
         $this->layout = 'ajax';
-
+        $conditions = array();
+        if (isset($this->request->data['date']))
+        {
+            $day = date('Y-m-d', strtotime($this->request->data['date']));
+            $conditions = array('day'=>$day);
+        }
         $entries = $this->Entry->find('all', array(
-            'conditions' => array(
-//                'start_time > ?' => $todayAtMidnight
-            ),
+            'conditions' => $conditions,
             'order' => 'Task.id asc'));
 
         $this->set('entries', $entries);
