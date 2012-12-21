@@ -23,6 +23,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+define('MYSQL_DATE_FORMAT', 'Y-m-d H:i:s');
 /**
  * Cache Engine Configuration
  * Default settings provided below

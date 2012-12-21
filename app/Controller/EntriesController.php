@@ -12,6 +12,13 @@ class EntriesController extends AppController
 
     public function index()
     {
+        $todayAtMidnight = date(MYSQL_DATE_FORMAT, strtotime(date('Y-m-d')));
 
+        $entries = $this->Entry->find('all', array(
+            'conditions' => array(
+                'start_time > ?' => $todayAtMidnight),
+            'order' => 'start_time asc'));
+
+        $this->set('entries', $entries);
     }
 }
