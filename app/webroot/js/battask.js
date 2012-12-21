@@ -101,10 +101,16 @@ $(function(){
             url: '/entries/ajaxTodayEntries',
             success: function(data){
                 $('#TodayEntries').html(data);
+                $.Battask.processEntryRow($('.entry-row'));
                 $.Battask.observeEntryRow();
             }
         });
     };
+
+    $.Battask.populateTaskList = function()
+    {
+
+    }
 
     $(window).load(function(){
         $.Battask.initialize();
