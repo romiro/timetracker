@@ -25,7 +25,6 @@ class EntriesController extends AppController
     public function ajaxUpdate()
     {
         $id = $this->request->data['id'];
-        $taskId = $this->request->data['task_id'];
         $field = $this->request->data['field'];
         $value = $this->request->data['value'];
 

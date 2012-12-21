@@ -1,5 +1,5 @@
 
-<button type="button" id="TestButton">Test Entry Update Ajax</button>
+<button type="button" id="TestButton">(Test) Entry Update Ajax</button>
 
 <script type="text/javascript">
 
@@ -14,8 +14,6 @@
             }
         });
     });
-
-    $.extend()
 </script>
 
 
