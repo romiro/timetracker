@@ -14,28 +14,31 @@ class EntriesController extends AppController
     {
     }
 
+    /**
+     * Action to update all fields for a single time entry
+     */
     public function ajaxUpdateAll()
     {
         $this->layout = 'ajax';
         $data = $this->request->data;
         $entry = array('Entry'=>array());
+        //If an id is passed, Entry already exists, otherwise will create a new record
         if (!empty($data['id'])) {
             $entry['Entry']['id'] = $data['id'];
         }
 
-        $today = $data['today_date'];
+        $entry['Entry']['comment'] = $data['comment'];
+        $entry['Entry']['start_time'] = $data['start_time'];
+        $entry['Entry']['end_time'] = $data['end_time'];
+        $entry['Entry']['day'] = date('Y-m-d', strtotime($data['day']));
 
-        $startTime = strtotime($data['start_time']);
-        $endTime = strtotime($data['end_time']);
-        if ($startTime > $endTime) {
-            $startTime = $startTime + (12 * 60 * 60);
-        }
-
-        $entry['Entry']['start_date'] = date(MYSQL_DATE_FORMAT, strtotime($today . " " . $data['start_time']));
-        $entry['Entry']['end_date'] = date(MYSQL_DATE_FORMAT, strtotime($today . " " . $data['end_time']));
-
+        $this->Entry->save($entry);
     }
 
+    /**
+     * Update single field of an entry via Ajax
+     * (possibly will not be used)
+     */
     public function ajaxUpdateField()
     {
         $this->layout = 'ajax';
@@ -64,6 +67,6 @@ class EntriesController extends AppController
             'order' => 'Task.id asc'));
 
         $this->set('entries', $entries);
-        $this->set('today', date('l, F jS, Y'));
+        $this->set('day', date('l, F jS, Y'));
     }
 }
