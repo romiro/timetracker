@@ -6,6 +6,7 @@ $(function(){
         $('.entry-row').removeClass('active');
         $.Battask.observeEntryRow();
         $.Battask.getDayEntries();
+
     };
 
     $.Battask.observeEntryRow = function()
@@ -48,7 +49,6 @@ $(function(){
     {
         currentRow.each(function(){
             $.Battask.updateDecimals($(this));
-            $.Battask.updateAttaskLoad($(this));
         });
         $.Battask.calculateTotalTime();
     };
@@ -137,6 +137,7 @@ $(function(){
                 $('#TodayEntries').html(data);
                 $.Battask.processEntryRow($('.entry-row'));
                 $.Battask.observeEntryRow();
+                $.Battask.updateAttaskLoad($('.entry-row'));
             }
         });
     };
@@ -157,35 +158,6 @@ $(function(){
 
     }
 
-    $.Battask.updateAttaskLoad = function(currentRow)
-    {
-        var fieldValue, inputField, hiddenValue;
-        inputField = currentRow.find('.attask input[type=text]');
-        hiddenValue = currentRow.find('.attask').next('input[type=hidden]').val();
-
-        if(hiddenValue <= 4){
-            switch(taskType)
-            {
-                case 1:
-                    fieldValue  = 'GO';
-                    break;
-                case 2:
-                    fieldValue = 'Lunch';
-                    break;
-                case 3:
-                    fieldValue = 'OOO';
-                    break;
-                case 4:
-                    fieldValue = 'Vacation';
-                    break;
-            }
-        }else{
-            fieldValue = hiddenValue;
-        }
-
-        inputField.val(fieldValue);
-    }
-
     $.Battask.updateAttaskInputs = function(selectedType)
     {
         var taskType, fieldValue, hiddenValue, hiddenInput, inputField;
@@ -198,19 +170,15 @@ $(function(){
         {
             case 'general-overhead':
                 fieldValue  = 'GO';
-                hiddenValue = 1;
                 break;
             case 'lunch':
                 fieldValue = 'Lunch';
-                hiddenValue = 2;
                 break;
             case 'ooo':
                 fieldValue = 'OOO';
-                hiddenValue = 3;
                 break;
             case 'vacation':
                 fieldValue = 'Vacation';
-                hiddenValue = 4;
                 break;
         }
 
