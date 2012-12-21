@@ -25,6 +25,12 @@ $(function(){
             $.Battask.altTaskFlyout($(this), 'hide');
         });
 
+        // Task Id Flyout Children Event Observer
+
+        $('.alt-tasks a').mousedown(function(evt){
+            $.Battask.udpateAttaskInputs($(evt.target));
+        });
+
     };
 
     $.Battask.processEntryRow = function(currentRow)
@@ -130,34 +136,46 @@ $(function(){
             currentInput.parents('.attask-id').removeClass('show');
         }
 
-        var inputField = currentInput;
+    }
+
+    $.Battask.updateAttaskInputs = function(selectedType)
+    {
+        var taskType, fieldValue, hiddenValue, hiddenInput;
+
+        taskType = selectedType.parents('li').attr('class');
+        console.log(taskType);
+
         // Update Input Field
-        currentInput.next('.alt-tasks a').click(function(){
-            var taskType, fieldValue, hiddenValue, hiddenInput;
-            taskType = $(this).parents('li').attr('class');
-            hiddenInput = $(this).parents('.attask').find('input[name=""]')
-            switch(taskType)
-            {
-                case 'general-overhead':
-                    fieldValue  = 'GO';
-                    hiddenValue = 1;
-                    break;
-                case 'lunch':
-                    fieldValue = 'Lunch';
-                    hiddenValue = 2;
-                    break;
-                case 'ooo':
-                    fieldValue = 'OOO';
-                    hiddenValue = 3;
-                    break;
-                case 'vacation':
-                    fieldValue = 'Vacation';
-                    hiddenValue = 4;
-                    break;
-            }
 
 
-        });
+        //     var taskType, fieldValue, hiddenValue, hiddenInput;
+
+        //     hiddenInput = $(this).parents('.attask').find('input[name="attask"]');
+
+        //     switch(taskType)
+        //     {
+        //         case 'general-overhead':
+        //             fieldValue  = 'GO';
+        //             hiddenValue = 1;
+        //             break;
+        //         case 'lunch':
+        //             fieldValue = 'Lunch';
+        //             hiddenValue = 2;
+        //             break;
+        //         case 'ooo':
+        //             fieldValue = 'OOO';
+        //             hiddenValue = 3;
+        //             break;
+        //         case 'vacation':
+        //             fieldValue = 'Vacation';
+        //             hiddenValue = 4;
+        //             break;
+        //     }
+
+        //     inputField.val() = fieldValue;
+        //     hiddenInput.val() = hiddenValue;
+
+        // });
     }
 
     $(window).load(function(){

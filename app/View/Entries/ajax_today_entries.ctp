@@ -25,6 +25,7 @@
                     <li class="general-overhead"><a href="#">General Overhead</a></li>
                     <li class="lunch"><a href="#">Lunch</a></li>
                     <li class="ooo"><a href="#">Out of Office</a></li>
+                    <li class="vacation"><a href="#">Vacation</a></li>
                 </ul>
             </div>
         </div>
