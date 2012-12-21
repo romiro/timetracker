@@ -16,16 +16,13 @@ $appTitle = 'BAtTask'
 	<?php
 		echo $this->Html->meta('icon');
 
-//		echo $this->Html->css('cake.generic');
         echo $this->Html->css('foundation');
         echo $this->Html->css('app');
 
         echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
-//        echo $this->Html->script('app');
         echo $this->Html->script('modernizr.foundation.js');
         echo $this->Html->script('//use.typekit.net/opu2uit.js');
         echo $this->Html->script('battask');
-
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
