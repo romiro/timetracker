@@ -137,7 +137,6 @@ $(function(){
                 $('#TodayEntries').html(data);
                 $.Battask.processEntryRow($('.entry-row'));
                 $.Battask.observeEntryRow();
-                $.Battask.updateAttaskLoad($('.entry-row'));
             }
         });
     };
