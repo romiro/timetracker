@@ -20,9 +20,15 @@
 --
 
 LOCK TABLES `entries` WRITE;
-/*!40000 ALTER TABLE `entries` DISABLE KEYS */;
-INSERT INTO `entries` VALUES (1,1,'installing solr on dev','2012-12-20 11:01:06','2012-12-20 11:44:12'),(2,1,'installing solr on staging','2012-12-20 15:14:41','2012-12-20 15:58:53'),(3,2,'troubleshooting no products on search','2012-12-20 19:19:55','2012-12-20 13:35:03');
-/*!40000 ALTER TABLE `entries` ENABLE KEYS */;
+-- ----------------------------
+-- Records of entries
+-- ----------------------------
+INSERT INTO `entries` VALUES ('1', '1', 'installing solr on dev', '11:01', '11:44', '2012-12-21');
+INSERT INTO `entries` VALUES ('2', '1', 'installing solr on staging', '2:14', '3:58', '2012-12-21');
+INSERT INTO `entries` VALUES ('3', '2', 'troubleshooting no products on search', '12:55', '1:35', '2012-12-21');
+INSERT INTO `entries` VALUES ('4', '1', 'This is a test update', '7:19', '10:50', '2012-12-21');
+INSERT INTO `entries` VALUES ('5', '1', 'installing solr everywhere', '11:30', '14:30', '2012-12-21');
+
 UNLOCK TABLES;
 
 --
