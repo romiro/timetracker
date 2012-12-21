@@ -36,7 +36,7 @@ class AppHelper extends Helper
     {
         $days = array();
         $today = date('Y-m-d');
-        for ($i=1; $i<=$numDays; $i++) {
+        for ($i=0; $i<=$numDays; $i++) {
             $days[] = date($format, strtotime($today . "-$i day"));
         }
         return $days;
