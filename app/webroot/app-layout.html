@@ -80,9 +80,9 @@
   <div class="row">
     <section class="main current">
       <!-- START FORM -->
-      <div class="row time-entry twelve columns">
+      <div class="time-entry row">
         <div class="nine column entry list">
-          <div class="row">
+          <div class="row column">
             <h2>Wednesday, December 19th, 2012</h2>
 
             <div class="twelve columns">
@@ -132,11 +132,36 @@
                 </div>
               </div>
             </div>
+
+            <div class="twelve columns">
+              <div class="row entry-row new">
+                <div class="columns start-time">
+                  <input type="text" name="starttime" placeholder="0:00" />
+                </div>
+                <div class="columns mdash">&mdash;</div>
+                <div class="columns end-time">
+                  <input type="text" name="endtime" placeholder="0:00" />
+                </div>
+                <div class="columns decimal-time">0.00</div>
+                <div class="columns attask row collapse">
+                  <div class="two mobile-one columns">
+                    <span class="prefix">#</span>
+                  </div>
+                  <div class="ten mobile-three columns">
+                    <input type="text" name="attask" />
+                  </div>
+                </div>
+                <div class="columns comment">
+                  <textarea name="comment" placeholder="Comment">Coffee</textarea>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-        <div class="three columns row time-totals">
+        <div class="three column time-totals">
           <h2>8.92 hours</h2>
-          <div class="twelve columns row">
+          <div class="twelve column row">
             <ul>
               <li class="entry">
                 <div class="decimal-time"><span class="time">3.58</span> <span class="hours">hours</span></div>

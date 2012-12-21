@@ -3027,7 +3027,7 @@ div.progress.round .meter {
 }
 .top-bar > ul .name h1 a {
   padding: 0 22.5px;
-  font-weight: 200;
+  font-weight: 200 !important;
   font-size: 18px !important;
 }
 .top-bar > ul .name h1 img {
@@ -4893,11 +4893,22 @@ table.hide-for-medium {
     margin: 0;
   }
 }
+::-webkit-input-placeholder {
+  font-weight: 200;
+  color: #cccccc;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  font-weight: 200;
+  color: #cccccc;
+}
+.main h2 {
+  font: 200 36px/36px "lft-etica", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #2aa5ca;
+  margin-bottom: 21px;
+}
 .main input,
 .main textarea {
-  font: 200 13px/30px "lft-etica", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.entry-row .columns {
   font: 200 13px/30px "lft-etica", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .start-time,
@@ -4913,13 +4924,84 @@ table.hide-for-medium {
   border: 1px solid #ffffff;
   margin: 0;
 }
-.mdash {
-  height: 30px;
-}
 .start-time {
   padding-left: 0;
 }
+.decimal-time {
+  color: #999999;
+}
+.mdash {
+  color: #999999;
+  height: 30px;
+}
+.attask .prefix {
+  font: 200 13px/30px "lft-etica", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 30px;
+  width: 20px;
+  color: #ffffff;
+  background: #ffffff;
+  border-color: #ffffff;
+}
+.attask input {
+  position: relative;
+  left: 8px;
+  width: 50px;
+  height: 30px;
+  border: 1px solid #ffffff;
+  margin: 0;
+  padding-left: 10px;
+  color: #2aa5ca;
+}
+.comment {
+  padding-right: 0;
+  padding-left: 0;
+  width: 378px;
+}
+.comment textarea {
+  width: 100%;
+  line-height: 20px;
+  padding-top: 4px;
+  overflow: hidden;
+  height: 30px;
+  border-color: #ffffff;
+  resize: none;
+}
+.entry-row .columns {
+  font: 200 13px/30px "lft-etica", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .entry-row.active input,
-.entry-row.active textarea {
+.entry-row.new input,
+.entry-row.active textarea,
+.entry-row.new textarea {
   border: 1px solid #cccccc;
+}
+.entry-row.active .attask .prefix,
+.entry-row.new .attask .prefix {
+  color: #444444;
+  background: #f2f2f2;
+  border-color: #cccccc;
+}
+.entry-row.active .comment textarea,
+.entry-row.new .comment textarea {
+  height: 60px;
+}
+.entry h2 {
+  position: relative;
+}
+.entry h2:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 60%;
+  border-bottom: 1px solid #2aa5ca;
+  bottom: -10px;
+}
+.time-totals {
+  text-align: right;
+}
+.time-totals .twelve {
+  margin: 0;
+}
+.time-totals ul {
+  float: right;
 }
