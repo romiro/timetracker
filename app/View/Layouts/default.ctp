@@ -54,6 +54,10 @@ $appTitle = 'BAtTask'
                             <li class="divider"></li>
                             <li class="tagline">The Blue Acorn AtTask Utility</li>
                             <li class="divider hide-for-small"></li>
+                            <li><a class="active" href="/entries">Time Entries</a></li>
+                            <li class="divider hide-for-small"></li>
+                            <li><a class="active" href="/config">Config</a></li>
+                            <li class="divider hide-for-small"></li>
                         </ul>
 
                         <!-- Right Nav Section -->
@@ -66,11 +70,21 @@ $appTitle = 'BAtTask'
         </div>
     </div>
 
-    <?php echo $this->Session->flash(); ?>
+
 
     <div class="row">
+        <?php echo $this->Session->flash('flash', array('params'=>array('class'=>'alert-box')))?>
+
         <?php echo $this->fetch('content'); ?>
     </div>
+
+    <?/*
+    <div id="GhettoMenu" >
+        <ul>
+            <li><a href="/entries">Time Entries</a></li>
+            <li><a href="/config">Config</a></li>
+        </ul>
+    </div>*/?>
 
 	<?php echo $this->element('sql_dump'); ?>
 </body>

@@ -21,10 +21,18 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `config`;
 CREATE TABLE `config` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `path` text COMMENT 'Path which facilitates config setting sorting',
   `name` varchar(255) DEFAULT NULL,
   `value` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of config
+-- ----------------------------
+INSERT INTO `config` VALUES ('1', 'attask.username', 'AtTask Username', null);
+INSERT INTO `config` VALUES ('2', 'attask.password', 'AtTask Password', null);
+
 
 -- ----------------------------
 -- Table structure for `entries`

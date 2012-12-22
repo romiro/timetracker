@@ -1,6 +1,8 @@
+@import 'variables.less';
+@import 'mixins.less';
 /* Artfully masterminded by ZURB  */
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
    Table of Contents
 -----------------------------------------------------
 :: Shared Styles
@@ -27,3 +29,49 @@
 ----------------------------------------- */
 
 
+/* -----------------------------------------
+   Cake SQL Log
+----------------------------------------- */
+.cake-sql-log {
+  background: #f1f1f1;
+  td {
+    padding: 4px 8px;
+    margin:1px;
+    text-align: left;
+    font-family: Monaco, Consolas, "Courier New", monospaced;
+  }
+  caption {
+    color:#fff;
+  }
+}
+
+#Config {
+  div.row {}
+  dt, dd {
+    float:left;
+  }
+  dt {
+    clear:left;
+    width:300px;
+  }
+  .config-buttons {
+    clear:both;
+  }
+}
+
+#GhettoMenu {
+  padding:12px;
+  ul {
+    list-style:none;
+  }
+  li {
+    float:left;
+    &:after {
+      content:"  |  ";
+      white-space:pre;
+    }
+    &:last-of-type:after {
+      content:"";
+    }
+  }
+}

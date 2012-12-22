@@ -1,29 +1,86 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 /* Artfully masterminded by ZURB  */
-
-/* -------------------------------------------------- 
+/* --------------------------------------------------
    Table of Contents
 -----------------------------------------------------
 :: Shared Styles
 :: Page Name 1
 :: Page Name 2
 */
-
-
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-
-
-
 /* -----------------------------------------
    Page Name 1
 ----------------------------------------- */
-
-
-
-
 /* -----------------------------------------
    Page Name 2
 ----------------------------------------- */
-
-
+/* -----------------------------------------
+   Cake SQL Log
+----------------------------------------- */
+.cake-sql-log {
+  background: #f1f1f1;
+}
+.cake-sql-log td {
+  padding: 4px 8px;
+  margin: 1px;
+  text-align: left;
+  font-family: Monaco, Consolas, "Courier New", monospaced;
+}
+.cake-sql-log caption {
+  color: #fff;
+}
+#Config dt,
+#Config dd {
+  float: left;
+}
+#Config dt {
+  clear: left;
+  width: 300px;
+}
+#Config .config-buttons {
+  clear: both;
+}
+#GhettoMenu {
+  padding: 12px;
+}
+#GhettoMenu ul {
+  list-style: none;
+}
+#GhettoMenu li {
+  float: left;
+}
+#GhettoMenu li:after {
+  content: "  |  ";
+  white-space: pre;
+}
+#GhettoMenu li:last-of-type:after {
+  content: "";
+}
