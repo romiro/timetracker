@@ -1,0 +1,5 @@
+    -   Create ajax request for side panel which displays all the day's tasks with aggregated values
+        - Attempt a query for all Tasks ->> Entries where entry.day = day
+
+    -   Probably need a save button to appear whenever editing an individual time entry. Sending ajax updates with
+    every field opens up a lot of potential out-of-sync issues.
