@@ -1,5 +1,6 @@
 #/app/Config
-#/app/Config/database.php
+/app/Config/database.php
+/app/Config/attask_config.php
 /app/tmp
 /lib/Cake/Console/Templates/skel/tmp/
 #/plugins
