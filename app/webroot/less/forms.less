@@ -1,0 +1,323 @@
+/* Standard Forms ---------------------- */
+form { margin: 0 0 19.41641px; }
+
+.row form {
+    .row { margin: 0 -6px;
+        .column, .columns { padding: 0 6px; }
+        &.collapse {
+            margin: 0;
+            .column, .columns { padding: 0; }
+        }
+    }
+}
+
+label {
+    font-size: 14px;
+    color: @grayMedium;
+    cursor: pointer;
+    display: block;
+    font-weight: 500;
+    margin-bottom: 3px;
+    &.right {
+        float: none;
+        text-align: right;
+    }
+    &.inline {
+        line-height: 32px;
+        margin: 0 0 12px 0;
+    }
+}
+
+.prefix, .postfix {
+    display: block;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 32px;
+    line-height: 31px;
+}
+
+a.button.prefix, a.button.postfix {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+
+span.prefix, span.postfix {
+    background: @grayLighter;
+    border: 1px solid @grayLight;
+}
+
+.prefix {
+    left: 2px;
+    .border-top-left-radius(2px);
+    .border-bottom-left-radius(2px);
+    .transition(all 0.15s linear);
+    overflow: hidden;
+}
+
+.postfix {
+    right: 2px;
+    .border-top-right-radius(2px);
+    .border-bottom-right-radius(2px);
+    .transition(all 0.15s linear);
+}
+input {
+    &[type="text"], &[type="password"], &[type="date"], &[type="datetime"], &[type="email"], &[type="number"], &[type="search"], &[type="tel"], &[type="time"], &[type="url"] {
+        background-color: @white;
+        font-family: inherit;
+        border: 1px solid @grayLight;
+        .border-radius(2px);
+        color: rgba(0, 0, 0, 0.75);
+        display: block;
+        font-size: @baseFontSize;
+        margin: 0 0 12px 0;
+        padding: 6px;
+        height: 32px;
+        width: 100%;
+        .transition(all 0.15s linear);
+        &.oversize {
+            font-size: 17px;
+            padding: 4px 6px;
+        }
+        &:focus {
+            background: @inputBackground;
+            border-color: @grayLight;
+        }
+        &[disabled] {
+            background-color: #ddd;
+        }
+    }
+}
+textarea {
+    background-color: @white;
+        font-family: inherit;
+        border: 1px solid @grayLight;
+        .border-radius(2px);
+        color: rgba(0, 0, 0, 0.75);
+        display: block;
+        font-size: @baseFontSize;
+        margin: 0 0 12px 0;
+        padding: 6px;
+        height: 32px;
+        width: 100%;
+        height: auto;
+        .transition(all 0.15s linear);
+        &.oversize {
+            font-size: 17px;
+            padding: 4px 6px;
+        }
+        &:focus {
+            background: @inputBackground;
+            border-color: @grayLight;
+        }
+        &[disabled] {
+            background-color: #ddd;
+        }
+}
+
+select { width: 100%; }
+
+/* Errors */
+
+.error input, input.error, .error textarea, textarea.error {
+    border-color: @red;
+    background-color: rgba(198, 14, 18, 0.1);
+}
+
+.error label, label.error { color: @red; }
+
+.error small, small.error {
+    display: block;
+    padding: 6px 4px;
+    margin-top: -13px;
+    margin-bottom: 12px;
+    background: @red;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    .border-bottom-right-radius(2px);
+    .border-bottom-left-radius(2px);
+}
+
+.error textarea:focus, textarea.error:focus {
+    background: #fafafa;
+    border-color: @grayLight;
+}
+
+/* Custom Forms ---------------------- */
+
+form.custom {
+    span.custom {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        position: relative;
+        top: 2px;
+        border: solid 1px @grayLight;
+        background: @white;
+        &.radio {
+            .border-radius(100px);
+        }
+        &.checkbox:before {
+            content: '';
+            display: block;
+            line-height: 0.8;
+            height: 14px;
+            width: 14px;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: @baseFontSize;
+            color: @white;
+        }
+        &.radio.checked:before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            .border-radius(100px);
+            background: @grayDarker;
+            position: relative;
+            top: 3px;
+            left: 3px;
+        }
+        &.checkbox.checked:before {
+            content: "\00d7";
+            color: @grayDarker;
+        }
+    }
+    div.custom.dropdown {
+        display: block;
+        position: relative;
+        width: auto;
+        height: 28px;
+        margin-bottom: 9px;
+        ul {
+            overflow-y: auto;
+            max-height: 200px;
+        }
+        a{
+            &.current {
+                display: block;
+                width: auto;
+                line-height: 26px;
+                min-height: 28px;
+                padding: 0;
+                padding-left: 6px;
+                padding-right: 38px;
+                border: 1px solid #ddd;
+                color: #141414;
+                background-color: @white;
+                white-space: nowrap;
+            }
+            &.selector {
+                position: absolute;
+                width: 27px;
+                height: 28px;
+                display: block;
+                right: 0;
+                top: 0;
+                border: solid 1px #ddd;
+                &:after {
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border: solid 5px;
+                    border-color: #aaa transparent transparent transparent;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    margin-top: -2px;
+                    margin-left: -5px;
+                }
+            }
+        }
+        &:hover, &.open {
+            a {
+                &.selector:after {
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border: solid 5px;
+                    border-color: @grayDark transparent transparent transparent;
+                }
+            }
+        }
+        &.open {
+            ul {
+                display: block;
+                z-index: 10;
+            }
+        }
+        &.small { width: 134px !important; }
+        &.medium { width: 254px !important; }
+        &.large { width: 434px !important; }
+        &.expand { width: 100% !important; }
+        &.open {
+            &.small ul { width: 134px !important; }
+            &.medium ul { width: 254px !important; }
+            &.large ul { width: 434px !important; }
+            &.expand ul { width: 100% !important; }
+        }
+        ul {
+            position: absolute;
+            width: auto;
+            display: none;
+            margin: 0;
+            left: 0;
+            top: 27px;
+            margin: 0;
+            padding: 0;
+            background: @white;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid @grayLight;
+            li {
+                color: @grayMedium;
+                font-size: 13px;
+                cursor: pointer;
+                padding: 3px 38px 3px 6px;
+                min-height: 18px;
+                line-height: 18px;
+                margin: 0;
+                white-space: nowrap;
+                list-style: none;
+                &.selected, &:hover {
+                    background: @blueLight;
+                    color: @black;
+                }
+                &.selected:after, &:hover:after {
+                    content: "\2013";
+                    position: absolute;
+                    right: 10px;
+                }
+                &:hover:after {
+                    color: #a3dbec;
+                }
+                &.selected:hover {
+                    background: @blueLight;
+                    cursor: default;
+                    color: @black;
+                }
+                &.selected:hover:after {
+                    color: @black;
+                }
+            }
+            &.show { display: block; }
+        }
+    }
+    .custom.disabled {
+        background-color: @grayLight;
+    }
+}
+
+/* Correct FF custom dropdown height */
+@-moz-document url-prefix() {
+    form.custom div.custom.dropdown a.selector { height: 30px; }
+}
