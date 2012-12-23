@@ -13,7 +13,18 @@ class EntriesController extends AppController
 
     public function index()
     {
-        $this->Attask->login();
+        App::uses('Attask', '');
+        $api = new Attask();
+
+        try {
+            if ($this->Session->check('attask.logged_in')) {
+                $api->login();
+            }
+        }
+        catch (Exception $e) {
+            $this->setError($e->getMessage());
+        }
+
     }
 
     /**

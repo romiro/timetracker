@@ -42,18 +42,13 @@ class AttaskComponent extends Component
     public function login()
     {
         if (!$this->Session->check('attask.logged_in')) {
-            //TODO: refactor into callApi
-            $http = new HttpSocket();
-            $response = $http->get("$this->apiUrl/login", array(
-                'username'=>$this->username,
-                'password'=>$this->password));
+            $result = $this->callApi('login', array('username'=>$this->username,'password'=>$this->password));
 
-            $data = json_decode($response->body, true);
-            if (isset($data['data'])) {
+            if (isset($result['data'])) {
                 $this->Session->write(array(
                     'attask.logged_in' => true,
-                    'attask.sessionID' => $data['data']['sessionID'],
-                    'attask.userID' => $data['data']['userID']
+                    'attask.sessionID' => $result['data']['sessionID'],
+                    'attask.userID' => $result['data']['userID']
                 ));
             }
             else {
