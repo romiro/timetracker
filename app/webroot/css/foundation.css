@@ -25,6 +25,176 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+audio:not([controls]) {
+  display: none;
+}
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+a:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+a:hover,
+a:active {
+  outline: 0;
+}
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  /* Responsive images (ensure images don't scale beyond their parents) */
+
+  max-width: 100%;
+  /* Part 1: Set a maxium relative to the parent */
+
+  width: auto\9;
+  /* IE7-8 need help adjusting responsive images */
+
+  height: auto;
+  /* Part 2: Scale the height according to the width, otherwise you get stretching */
+
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+#map_canvas img,
+.google-maps img {
+  max-width: none;
+}
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+}
+button,
+input {
+  *overflow: visible;
+  line-height: normal;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+label,
+select,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer;
+}
+input[type="search"] {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-appearance: textfield;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+@media print {
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 0.5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+/* Global Styles =========================================================== */
 /* Requires: normalize.css */
 /* Global Reset & Standards ---------------------- */
 *,
@@ -38,7 +208,7 @@ html {
   font-size: 62.5%;
 }
 body {
-  background: white;
+  background: #ffffff;
   font-family: "lft-etica", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
@@ -49,19 +219,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 /* Links ---------------------- */
-a img {
-  border: none;
-}
 a {
   color: #2aa5ca;
   text-decoration: none;
   line-height: inherit;
 }
+a img {
+  border: none;
+}
 a:hover {
-  color: #2694b5;
+  color: #2aa5ca;
 }
 a:focus {
-  color: #2694b5;
+  color: #2aa5ca;
 }
 p a,
 p a:visited {
@@ -92,23 +262,216 @@ p a:visited {
 .highlight {
   background: #2aa5ca;
 }
+#map_canvas embed,
+#googlemap embed,
+#map_canvas img,
 #googlemap img,
-object,
-embed {
-  max-width: none;
-}
-#map_canvas embed {
-  max-width: none;
-}
-#map_canvas img {
-  max-width: none;
-}
-#map_canvas object {
+#map_canvas object,
+#googlemap object {
   max-width: none;
 }
 /* Reset for strange margins by default on <figure> elements */
 figure {
   margin: 0;
+}
+/* Base Type Styles Using Modular Scale ---------------------- */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  direction: ltr;
+}
+p {
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 17px;
+}
+p.lead {
+  font-size: 17.5px;
+  line-height: 1.6;
+  margin-bottom: 17px;
+}
+aside p {
+  font-size: 13px;
+  line-height: 1.35;
+  font-style: italic;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "lft-etica", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  color: #222222;
+  text-rendering: optimizeLegibility;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  margin-top: 14px;
+}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
+  font-size: 60%;
+  color: #999999;
+  line-height: 0;
+}
+h1 {
+  font-size: 44px;
+}
+h2 {
+  font-size: 37px;
+}
+h3 {
+  font-size: 27px;
+}
+h4 {
+  font-size: 23px;
+}
+h5 {
+  font-size: 17px;
+}
+h6 {
+  font-size: 14px;
+}
+hr {
+  border: solid #ddd;
+  border-width: 1px 0 0;
+  clear: both;
+  margin: 22px 0 21px;
+  height: 0;
+}
+.subheader {
+  line-height: 1.3;
+  color: #999999;
+  font-weight: 300;
+  margin-bottom: 17px;
+}
+em,
+i {
+  font-style: italic;
+  line-height: inherit;
+}
+strong,
+b {
+  font-weight: bold;
+  line-height: inherit;
+}
+small {
+  font-size: 60%;
+  line-height: inherit;
+}
+code {
+  font-weight: bold;
+  background: #2aa5ca;
+}
+/* Lists ---------------------- */
+ul,
+ol,
+dl {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 17px;
+  list-style-position: outside;
+}
+ul li ul,
+ol li ul,
+ul li ol,
+ol li ol {
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+ul.square {
+  list-style-type: square;
+}
+ul.circle {
+  list-style-type: circle;
+}
+ul.disc {
+  list-style-type: disc;
+}
+ul.square,
+ul.circle,
+ul.disc {
+  margin-left: 17px;
+}
+ul.square li ul,
+ul.circle li ul,
+ul.disc li ul {
+  list-style-type: inherit;
+}
+ul.no-bullet {
+  list-style: none;
+}
+ul.large li {
+  line-height: 21px;
+}
+ol {
+  margin-left: 20px;
+}
+/* Blockquotes ---------------------- */
+blockquote,
+blockquote p {
+  line-height: 1.5;
+  color: #999999;
+}
+blockquote {
+  margin: 0 0 17px;
+  padding: 9px 20px 0 19px;
+  border-left: 1px solid #cccccc;
+}
+blockquote cite {
+  display: block;
+  font-size: 13px;
+  color: #444444;
+}
+blockquote cite:before {
+  content: "\2014 \0020";
+}
+blockquote cite a,
+blockquote cite a:visited {
+  color: #444444;
+}
+abbr,
+acronym {
+  text-transform: uppercase;
+  font-size: 90%;
+  color: #222222;
+  border-bottom: 1px solid #cccccc;
+  cursor: help;
+}
+abbr {
+  text-transform: none;
+}
+input,
+textarea {
+  outline: 0;
 }
 /* Base Type Styles Using Modular Scale ---------------------- */
 body,
@@ -4100,6 +4463,10 @@ table.hide-for-medium {
   .top-bar ul > li.has-button a.button {
     margin: 0;
   }
+}
+/* BAtTask Specific Styles ================================================= */
+body {
+  padding-top: 80px;
 }
 ::-webkit-input-placeholder {
   font-weight: 200;
