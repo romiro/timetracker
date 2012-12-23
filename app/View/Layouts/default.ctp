@@ -75,6 +75,8 @@ $appTitle = 'BAtTask'
     <div class="row">
         <?php echo $this->Session->flash('flash', array('params'=>array('class'=>'alert-box')))?>
 
+        <?php echo $this->Session->flash('error', array('params'=>array('class'=>'alert-box alert')))?>
+
         <?php echo $this->fetch('content'); ?>
     </div>
 

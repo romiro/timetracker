@@ -11,6 +11,7 @@ class ConfigController extends AppController
 {
     public function index()
     {
+        exit('Phasing this out most likely. Hit back butan!');
         $config = $this->Config->find('all');
 
         $this->set('config', $config);

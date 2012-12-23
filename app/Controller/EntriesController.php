@@ -9,9 +9,11 @@
 class EntriesController extends AppController
 {
     public $uses = array('Task', 'Entry');
+    public $components = array('Attask');
 
     public function index()
     {
+        $this->Attask->login();
     }
 
     /**

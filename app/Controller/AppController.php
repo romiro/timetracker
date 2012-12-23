@@ -34,4 +34,9 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller
 {
     public $components = array('Session');
+
+    public function setError($message)
+    {
+        $this->Session->setFlash($message, 'default', array(), 'error');
+    }
 }
