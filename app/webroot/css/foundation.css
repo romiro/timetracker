@@ -877,6 +877,7 @@ form.custom .custom.disabled {
     height: 30px;
   }
 }
+/* The Grid ================================================================ */
 /* The Grid ---------------------- */
 .row {
   width: 940px;
@@ -886,27 +887,21 @@ form.custom .custom.disabled {
 }
 .row .row {
   width: auto;
-  max-width: none;
-  min-width: 0;
-  margin: 0 -15px;
-}
-.row.collapse .column,
-.row.collapse .columns {
-  padding: 0;
-}
-.row .row {
-  width: auto;
-  max-width: none;
+  max-width: auto;
   min-width: 0;
   margin: 0 -15px;
 }
 .row .row.collapse {
   margin: 0;
 }
+.row.collapse .column,
+.row.collapse .columns {
+  padding: 0;
+}
 .column,
 .columns {
   float: left;
-  min-height: 1px;
+  margin-height: 1px;
   padding: 0 15px;
   position: relative;
 }
@@ -1082,6 +1077,150 @@ img {
 .row:after {
   clear: both;
 }
+/* Block Grids ---------------------- */
+/* These are 2-up, 3-up, 4-up and 5-up ULs, suited
+for repeating blocks of content. Add 'mobile' to
+them to switch them just like the layout grid
+(one item per line) on phones
+
+For IE7/8 compatibility block-grid items need to be
+the same height. You can optionally uncomment the
+lines below to support arbitrary height, but know
+that IE7/8 do not support :nth-child.
+-------------------------------------------------- */
+.block-grid {
+  display: block;
+  overflow: hidden;
+  padding: 0;
+}
+.block-grid > li {
+  display: block;
+  height: auto;
+  float: left;
+}
+.block-grid .one-up {
+  margin: 0;
+  margin: 0 -8px;
+}
+.block-grid .one-up > li {
+  width: 100%;
+  padding: 0 8px 8px;
+}
+.block-grid .two-up {
+  margin: 0 -15px;
+  margin: 0 -8px;
+}
+.block-grid .two-up > li {
+  width: 50%;
+  padding: 0 15px 15px;
+  padding: 0 8px 8px;
+}
+.block-grid .two-up > li:nth-child(2n+1) {
+  clear: both;
+}
+.block-grid .three-up {
+  margin: 0 -12px;
+  margin: 0 -8px;
+}
+.block-grid .three-up > li {
+  width: 33.33333%;
+  padding: 0 12px 12px;
+  padding: 0 8px 8px;
+}
+.block-grid .three-up > li:nth-child(3n+1) {
+  clear: both;
+}
+.block-grid .four-up {
+  margin: 0 -10px;
+}
+.block-grid .four-up > li {
+  width: 25%;
+  padding: 0 10px 10px;
+}
+.block-grid .four-up > li:nth-child(4n+1) {
+  clear: both;
+}
+.block-grid .five-up {
+  margin: 0 -8px;
+}
+.block-grid .five-up > li {
+  width: 20%;
+  padding: 0 8px 8px;
+}
+.block-grid .five-up > li:nth-child(5n+1) {
+  clear: both;
+}
+.block-grid .six-up {
+  margin: 0 -8px;
+}
+.block-grid .six-up > li {
+  width: 16.66667%;
+  padding: 0 8px 8px;
+}
+.block-grid .six-up > li:nth-child(6n+1) {
+  clear: both;
+}
+.block-grid .seven-up {
+  margin: 0 -8px;
+}
+.block-grid .seven-up > li {
+  width: 14.28571%;
+  padding: 0 8px 8px;
+}
+.block-grid .seven-up > li:nth-child(7n+1) {
+  clear: both;
+}
+.block-grid .eight-up {
+  margin: 0 -8px;
+}
+.block-grid .eight-up > li {
+  width: 12.5%;
+  padding: 0 8px 8px;
+}
+.block-grid .eight-up > li:nth-child(8n+1) {
+  clear: both;
+}
+.block-grid .nine-up {
+  margin: 0 -8px;
+}
+.block-grid .nine-up > li {
+  width: 11.11111%;
+  padding: 0 8px 8px;
+}
+.block-grid .nine-up > li:nth-child(9n+1) {
+  clear: both;
+}
+.block-grid .ten-up {
+  margin: 0 -8px;
+}
+.block-grid .ten-up > li {
+  width: 10%;
+  padding: 0 8px 8px;
+}
+.block-grid .ten-up > li:nth-child(10n+1) {
+  clear: both;
+}
+.block-grid .eleven-up {
+  margin: 0 -8px;
+}
+.block-grid .eleven-up > li {
+  width: 9.09091%;
+  padding: 0 8px 8px;
+}
+.block-grid .eleven-up > li:nth-child(11n+1) {
+  clear: both;
+}
+.block-grid .twelve-up {
+  margin: 0 -8px;
+}
+.block-grid .twelve-up > li {
+  width: 8.33333%;
+  padding: 0 8px 8px;
+}
+.block-grid .twelve-up > li:nth-child(12n+1) {
+  clear: both;
+}
+/* Buttons ================================================================= */
 /* Normal Buttons ---------------------- */
 .button {
   width: auto;
@@ -1090,11 +1229,14 @@ img {
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  color: white;
   cursor: pointer;
   display: inline-block;
   font-family: inherit;
   font-size: 14px;
+  -webkit-transition: background-color 0.15s ease-in-out;
+  -moz-transition: background-color 0.15s ease-in-out;
+  -o-transition: background-color 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out;
   font-weight: bold;
   line-height: 1;
   margin: 0;
@@ -1102,20 +1244,10 @@ img {
   position: relative;
   text-align: center;
   text-decoration: none;
-  -webkit-transition: background-color 0.15s ease-in-out;
-  -moz-transition: background-color 0.15s ease-in-out;
-  -o-transition: background-color 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out;
-  /* Hovers */
-  /* Sizes */
-  /* Colors */
-  /* Radii */
-  /* Layout */
-  /* Disabled ---------- */
 }
 .button:hover,
 .button:focus {
-  color: white;
+  color: #ffffff;
   background-color: #2183a0;
 }
 .button:active {
@@ -1160,33 +1292,29 @@ img {
 }
 .button.alert {
   background-color: #c60e12;
-  border: 1px solid #7f090c;
+  border: 1px solid #2183a0;
 }
 .button.alert:hover,
 .button.alert:focus {
-  background-color: #960b0e;
+  background-color: #2183a0;
 }
 .button.secondary {
   background-color: #444444;
-  color: black;
-  border: 1px solid #1e1e1e;
+  color: #000000;
+  border: 1px solid #333333;
 }
 .button.secondary:hover,
 .button.secondary:focus {
-  background-color: #2b2b2b;
+  background-color: #333333;
 }
 .button.radius {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
-  -ms-border-radius: 0px;
-  -o-border-radius: 0px;
   border-radius: 0px;
 }
 .button.round {
   -webkit-border-radius: 1000px;
   -moz-border-radius: 1000px;
-  -ms-border-radius: 1000px;
-  -o-border-radius: 1000px;
   border-radius: 1000px;
 }
 .button.full-width {
@@ -1208,8 +1336,10 @@ img {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.button.disabled :hover,
-.button[disabled] :hover {
+.button.disabled:hover,
+.button[disabled]:hover,
+.button.disabled:focus,
+.button[disabled]:focus {
   background: #2aa5ca;
 }
 .button.disabled.success,
@@ -1217,8 +1347,8 @@ img {
   background-color: #5da323;
 }
 .button.disabled.success:hover,
-.button.disabled.success:focus,
 .button[disabled].success:hover,
+.button.disabled.success:focus,
 .button[disabled].success:focus {
   background-color: #5da323;
   outline: none;
@@ -1228,8 +1358,8 @@ img {
   background-color: #c60e12;
 }
 .button.disabled.alert:hover,
-.button.disabled.alert:focus,
 .button[disabled].alert:hover,
+.button.disabled.alert:focus,
 .button[disabled].alert:focus {
   background-color: #c60e12;
   outline: none;
@@ -1239,8 +1369,8 @@ img {
   background-color: #444444;
 }
 .button.disabled.secondary:hover,
-.button.disabled.secondary:focus,
 .button[disabled].secondary:hover,
+.button.disabled.secondary:focus,
 .button[disabled].secondary:focus {
   background-color: #444444;
   outline: none;
@@ -1250,7 +1380,6 @@ input[type=submit].button,
 button.button {
   -webkit-appearance: none;
 }
-/* Correct FF button padding */
 @-moz-document url-prefix() {
   button::-moz-focus-inner,
   input[type="reset"]::-moz-focus-inner,
@@ -1260,28 +1389,23 @@ button.button {
     border: none;
     padding: 0;
   }
-  input[type="submit"].tiny.button {
-    padding: 3px 10px 4px;
-  }
-  input[type="submit"].small.button {
-    padding: 5px 14px 6px;
-  }
-  input[type="submit"].button,
-  input[type=submit].medium.button {
-    padding: 8px 20px 9px;
-  }
-  input[type="submit"].large.button {
-    padding: 13px 30px 14px;
-  }
 }
-/* Buttons with Dropdowns ---------------------- */
+input[type="submit"].tiny.button {
+  padding: 3px 10px 4px;
+}
+input[type="submit"].small.button {
+  padding: 5px 14px 6px;
+}
+input[type="submit"].button,
+input[type="submit"].medium.button {
+  padding: 8px 20px 9px;
+}
+input[type="submit"].large.button {
+  padding: 13px 30px 14px;
+}
 .button.dropdown {
   position: relative;
   padding-right: 44px;
-  /* Sizes */
-  /* Triangles */
-  /* Flyout List */
-  /* Split Dropdown Buttons */
 }
 .button.dropdown.large {
   padding-right: 60px;
@@ -1298,9 +1422,9 @@ button.button {
   width: 0;
   height: 0;
   border: solid 6px;
-  border-color: white transparent transparent transparent;
-  position: absolute;
-  top: 50%;
+  border-color: #ffffff transparent transparent transparent;
+  position: absolute
+        top: 50%;
   right: 20px;
   margin-top: -2px;
 }
@@ -1310,7 +1434,7 @@ button.button {
   width: 0;
   height: 0;
   border: solid 7px;
-  border-color: white transparent transparent transparent;
+  border-color: #ffffff transparent transparent transparent;
   margin-top: -3px;
   right: 30px;
 }
@@ -1320,7 +1444,7 @@ button.button {
   width: 0;
   height: 0;
   border: solid 5px;
-  border-color: white transparent transparent transparent;
+  border-color: #ffffff transparent transparent transparent;
   margin-top: -2px;
   right: 14px;
 }
@@ -1330,7 +1454,7 @@ button.button {
   width: 0;
   height: 0;
   border: solid 4px;
-  border-color: white transparent transparent transparent;
+  border-color: #ffffff transparent transparent transparent;
   margin-top: -1px;
   right: 10px;
 }
@@ -1341,13 +1465,13 @@ button.button {
   display: none;
   position: absolute;
   left: -1px;
-  background: #fff;
+  background: #ffffff;
   background: rgba(255, 255, 255, 0.95);
   list-style: none;
   margin: 0;
   padding: 0;
   border: 1px solid #cccccc;
-  border-top: none;
+  border-top: 0;
   min-width: 100%;
   z-index: 40;
 }
@@ -1363,7 +1487,7 @@ button.button {
 }
 .button.dropdown > ul li a {
   display: block;
-  color: #555;
+  color: #666666;
   font-size: 13px;
   font-weight: normal;
   padding: 6px 14px;
@@ -1371,8 +1495,8 @@ button.button {
 }
 .button.dropdown > ul li:hover,
 .button.dropdown > ul li:focus {
-  background-color: #e1f3f9;
-  color: #222;
+  background-color: #cdebf5;
+  color: #222222;
 }
 .button.dropdown > ul li.divider {
   min-height: 0;
@@ -1383,7 +1507,7 @@ button.button {
 }
 .button.dropdown.up > ul {
   border-top: 1px solid #cccccc;
-  border-bottom: none;
+  border-bottom: 0;
 }
 .button.dropdown ul.no-hover.show-dropdown {
   display: block !important;
@@ -1394,9 +1518,6 @@ button.button {
 .button.dropdown.split {
   padding: 0;
   position: relative;
-  /* Sizes */
-  /* Triangle Spans */
-  /* Colors */
 }
 .button.dropdown.split:after {
   display: none;
@@ -1418,7 +1539,7 @@ button.button {
   background-color: #444444;
 }
 .button.dropdown.split > a {
-  color: white;
+  color: #ffffff;
   display: block;
   padding: 10px 50px 11px 20px;
   padding-left: 20px;
@@ -1454,7 +1575,7 @@ button.button {
   top: 0;
   height: 100%;
   width: 30px;
-  border-left: 1px solid #1d718b;
+  border-left: 1px solid #2183a0;
   -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5) inset;
   -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5) inset;
   box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5) inset;
@@ -1465,7 +1586,7 @@ button.button {
 }
 .button.dropdown.split > span:hover,
 .button.dropdown.split > span:focus {
-  background-color: #2183a0;
+  background: #2183a0;
 }
 .button.dropdown.split > span:after {
   content: "";
@@ -1473,7 +1594,7 @@ button.button {
   width: 0;
   height: 0;
   border: solid 6px;
-  border-color: white transparent transparent transparent;
+  border-color: #ffffff transparent transparent transparent;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1486,16 +1607,10 @@ button.button {
   width: 0;
   height: 0;
   border: solid 6px;
-  border-color: black transparent transparent transparent;
+  border-color: #000000 transparent transparent transparent;
 }
 .button.dropdown.split.large span {
   width: 45px;
-}
-.button.dropdown.split.small span {
-  width: 21px;
-}
-.button.dropdown.split.tiny span {
-  width: 15px;
 }
 .button.dropdown.split.large span:after {
   content: "";
@@ -1503,9 +1618,12 @@ button.button {
   width: 0;
   height: 0;
   border: solid 7px;
-  border-color: white transparent transparent transparent;
+  border-color: #ffffff transparent transparent transparent;
   margin-top: -3px;
   margin-left: -7px;
+}
+.button.dropdown.split.small span {
+  width: 21px;
 }
 .button.dropdown.split.small span:after {
   content: "";
@@ -1513,9 +1631,12 @@ button.button {
   width: 0;
   height: 0;
   border: solid 4px;
-  border-color: white transparent transparent transparent;
+  border-color: #ffffff transparent transparent transparent;
   margin-top: -1px;
   margin-left: -4px;
+}
+.button.dropdown.split.tiny span {
+  width: 15px;
 }
 .button.dropdown.split.tiny span:after {
   content: "";
@@ -1523,24 +1644,13 @@ button.button {
   width: 0;
   height: 0;
   border: solid 3px;
-  border-color: white transparent transparent transparent;
+  border-color: #ffffff transparent transparent transparent;
   margin-top: -1px;
   margin-left: -3px;
 }
 .button.dropdown.split.alert > span {
   background-color: #c60e12;
-  border-left-color: #7f090c;
-}
-.button.dropdown.split.success > span {
-  background-color: #5da323;
-  border-left-color: #396415;
-}
-.button.dropdown.split.secondary > span {
-  background-color: #444444;
-  border-left-color: #1e1e1e;
-}
-.button.dropdown.split.secondary > a {
-  color: black;
+  border-left-color: #ef181d;
 }
 .button.dropdown.split.alert > a:hover,
 .button.dropdown.split.alert > span:hover,
@@ -1548,11 +1658,22 @@ button.button {
 .button.dropdown.split.alert > span:focus {
   background-color: #960b0e;
 }
+.button.dropdown.split.success > span {
+  background-color: #5da323;
+  border-left-color: #75cd2c;
+}
 .button.dropdown.split.success > a:hover,
 .button.dropdown.split.success > span:hover,
 .button.dropdown.split.success > a:focus,
 .button.dropdown.split.success > span:focus {
   background-color: #45791a;
+}
+.button.dropdown.split.secondary > span {
+  background-color: #444444;
+  border-left-color: #cccccc;
+}
+.button.dropdown.split.secondary > a {
+  color: #000000;
 }
 .button.dropdown.split.secondary > a:hover,
 .button.dropdown.split.secondary > span:hover,
@@ -1561,106 +1682,104 @@ button.button {
   background-color: #2b2b2b;
 }
 /* Button Groups ---------------------- */
-ul.button-group {
+.button-group {
   list-style: none;
   padding: 0;
   margin: 0 0 12px;
   *zoom: 1;
 }
-ul.button-group:before,
-ul.button-group:after {
+.button-group:before,
+.button-group:after {
   content: " ";
   display: table;
 }
-ul.button-group:after {
+.button-group:after {
   clear: both;
 }
-ul.button-group li {
+.button-group li {
   padding: 0;
   margin: 0 0 0 -1px;
   float: left;
 }
-ul.button-group li:first-child {
+.button-group li:first-child {
   margin-left: 0;
 }
-ul.button-group.radius li a.button,
-ul.button-group.radius li a.button.radius,
-ul.button-group.radius li a.button-rounded,
-ul.button-group.radius li input[type="submit"].button,
-ul.button-group.radius li input[type="submit"].button.radius,
-ul.button-group.radius li input[type="submit"].button-rounded {
+.button-group.radius li a.button,
+.button-group.radius li a.button.radius,
+.button-group.radius li a.button.rounded,
+.button-group.radius li input[type="submit"].button,
+.button-group.radius li input[type="submit"].button.radius,
+.button-group.radius li input[type="submit"].button.rounded {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
-  -ms-border-radius: 0px;
-  -o-border-radius: 0px;
   border-radius: 0px;
 }
-ul.button-group.radius li:first-child a.button,
-ul.button-group.radius li:first-child a.button.radius,
-ul.button-group.radius li:first-child input[type="submit"].button,
-ul.button-group.radius li:first-child input[type="submit"].button.radius {
-  -moz-border-radius-topleft: 0px;
-  -webkit-border-top-left-radius: 0px;
-  border-top-left-radius: 0px;
-  -moz-border-radius-bottomleft: 0px;
-  -webkit-border-bottom-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+.button-group.radius li:first-child a.button,
+.button-group.radius li:first-child a.button.radius,
+.button-group.radius li:first-child input[type="submit"].button,
+.button-group.radius li:first-child input[type="submit"].button.radius {
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-left-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-bottom-left-radius: 0;
 }
-ul.button-group.radius li:first-child a.button.rounded,
-ul.button-group.radius li:first-child input[type="submit"].button.rounded {
-  -moz-border-radius-topleft: 1000px;
+.button-group.radius li:first-child a.button.rounded,
+.button-group.radius li:first-child input[type="submit"].button.rounded {
   -webkit-border-top-left-radius: 1000px;
+  -moz-border-radius-topleft: 1000px;
   border-top-left-radius: 1000px;
-  -moz-border-radius-bottomleft: 1000px;
   -webkit-border-bottom-left-radius: 1000px;
+  -moz-border-radius-bottomleft: 1000px;
   border-bottom-left-radius: 1000px;
 }
-ul.button-group.radius li:last-child a.button,
-ul.button-group.radius li:last-child a.button.radius,
-ul.button-group.radius li:last-child input[type="submit"].button,
-ul.button-group.radius li:last-child input[type="submit"].button.radius {
-  -moz-border-radius-topright: 0px;
-  -webkit-border-top-right-radius: 0px;
-  border-top-right-radius: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+.button-group.radius li:last-child a.button,
+.button-group.radius li:last-child a.button.radius,
+.button-group.radius li:last-child input[type="submit"].button,
+.button-group.radius li:last-child input[type="submit"].button.radius {
+  -webkit-border-top-right-radius: 0;
+  -moz-border-radius-topright: 0;
+  border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  border-bottom-right-radius: 0;
 }
-ul.button-group.radius li:last-child a.button.rounded,
-ul.button-group.radius li:last-child input[type="submit"].button.rounded {
-  -moz-border-radius-topright: 1000px;
+.button-group.radius li:last-child a.button.rounded,
+.button-group.radius li:last-child input[type="submit"].button.rounded {
   -webkit-border-top-right-radius: 1000px;
+  -moz-border-radius-topright: 1000px;
   border-top-right-radius: 1000px;
-  -moz-border-radius-bottomright: 1000px;
   -webkit-border-bottom-right-radius: 1000px;
+  -moz-border-radius-bottomright: 1000px;
   border-bottom-right-radius: 1000px;
 }
-ul.button-group.even .button {
+.button-group .even .button {
   width: 100%;
 }
-ul.button-group.even.two-up li {
+.button-group .even.two-up li {
   width: 50%;
 }
-ul.button-group.even.three-up li {
+.button-group .even.three-up li {
   width: 33.3%;
 }
-ul.button-group.even.three-up li:first-child {
+.button-group .even.three-up li:first-child {
   width: 33.4%;
 }
-ul.button-group.even.four-up li {
+.button-group .even.four-up li {
   width: 25%;
 }
-ul.button-group.even.five-up li {
+.button-group .even.five-up li {
   width: 20%;
 }
-div.button-bar {
+.button-bar {
   overflow: hidden;
 }
-div.button-bar ul.button-group {
+.button-bar .button-group {
   float: left;
   margin-right: 8px;
 }
-div.button-bar ul.button-group:last-child {
+.button-bar .button-group:last-child {
   margin-left: 0;
 }
 .flyout {
