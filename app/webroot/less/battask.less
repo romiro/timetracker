@@ -66,7 +66,7 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 .comment {
   padding-right: 0;
   padding-left: 0;
-  width: 368px;
+  width: 363px;
   textarea {
     width: 100%;
     line-height: 20px;
@@ -94,6 +94,7 @@ input:-moz-placeholder, textarea:-moz-placeholder {
       }
     }
     .comment {
+      width: 363px;
       textarea {
         height: 60px;
       }
@@ -133,6 +134,7 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 }
 
 .entry {
+  padding: 0;
   h2 {
     position: relative;
     &:after {
@@ -144,15 +146,22 @@ input:-moz-placeholder, textarea:-moz-placeholder {
       bottom: -10px;
     }
   }
+  > .row {
+    padding-right: 0;
+  }
+  .twelve.columns {
+    padding: 0;
+  }
 }
 
 .time-totals {
   text-align: right;
+  padding-right: 0;
   h2 { margin-bottom: 26px; }
   .twelve {
     margin: 0;
   }
-  ul { display: none;
+  ul {
     float: right;
     list-style-type: none;
     li {
@@ -182,4 +191,7 @@ input:-moz-placeholder, textarea:-moz-placeholder {
       bottom: -2px;
     }
   }
+}
+.row .row.time-entry {
+  margin: 0;
 }

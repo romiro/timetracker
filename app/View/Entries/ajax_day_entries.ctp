@@ -4,7 +4,7 @@
 
 <?php foreach($entries as $entry):?>
 <div class="twelve columns">
-    <div class="row entry-row">
+    <div class="entry-row">
         <input type="hidden" name="data[id]" class="id" value="<?php echo $entry['Entry']['id']?>" />
         <div class="columns start-time">
             <input type="text" name="data[start_time]" placeholder="0:00" value="<?php echo $entry['Entry']['start_time_hours']?>" />

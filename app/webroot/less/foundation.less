@@ -1,206 +1,56 @@
 @import 'variables.less';
 @import 'mixins.less';
-@import 'reset.less';
+@import 'foundation/reset.less';
 
 /* Global Styles =========================================================== */
 
-@import 'global.less';
+@import 'foundation/global.less';
 
 /* Forms =================================================================== */
 
-@import 'forms.less';
+@import 'foundation/forms.less';
 
 /* The Grid ================================================================ */
 
-@import 'grid.less';
+@import 'foundation/grid.less';
 
-@import 'block-grid.less';
+@import 'foundation/block-grid.less';
 
 /* Buttons ================================================================= */
 
-@import 'buttons.less';
+@import 'foundation/buttons.less';
 
-// .nav-bar { height: 40px; background: #4d4d4d; margin-left: 0; margin-top: 20px; padding: 0; }
-// .nav-bar > li { float: left; display: block; position: relative; padding: 0; margin: 0; border: 1px solid #333333; border-right: none; line-height: 38px; -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset; -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset; box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset; }
-// .nav-bar > li:first-child { -webkit-box-shadow: 0 0 0; -moz-box-shadow: 0 0 0; box-shadow: 0 0 0; }
-// .nav-bar > li:last-child { border-right: solid 1px #333333; -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset, 1px 0 0 rgba(255, 255, 255, 0.2); -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset, 1px 0 0 rgba(255, 255, 255, 0.2); box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset, 1px 0 0 rgba(255, 255, 255, 0.2); }
-// .nav-bar > li.active { background: #2aa5ca; border-color: #2183a0; }
-// .nav-bar > li.active > a { color: white; cursor: default; }
-// .nav-bar > li.active:hover { background: #2aa5ca; cursor: default; }
-// .nav-bar > li:hover { background: #333333; }
-// .nav-bar > li > a { color: #e6e6e6; }
-// .nav-bar > li ul { margin-bottom: 0; }
-// .nav-bar > li .flyout { display: none; }
-// .nav-bar > li.has-flyout > a:first-child { padding-right: 40px; position: relative; }
-// .nav-bar > li.has-flyout > a:first-child:after { content: ""; display: block; width: 0; height: 0; border: solid 4px; border-color: #e6e6e6 transparent transparent transparent; position: absolute; right: 20px; top: 17px; }
-// .nav-bar > li.has-flyout > a.flyout-toggle { border-left: 0 !important; position: absolute; right: 0; top: 0; padding: 20px; z-index: 2; display: block; }
-// .nav-bar > li.has-flyout.is-touch > a:first-child { padding-right: 55px; }
-// .nav-bar > li.has-flyout.is-touch > a.flyout-toggle { border-left: 1px dashed #666; }
-// .nav-bar > li > a:first-child { position: relative; padding: 0 20px; display: block; text-decoration: none; font-size: 14px; }
-// .nav-bar > li > input { margin: 0 10px; }
-// .nav-bar.vertical { height: auto; margin-top: 0; }
-// .nav-bar.vertical > li { float: none; border-bottom: none; border-right: solid 1px #333333; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
-// .nav-bar.vertical > li.has-flyout > a:first-child:after { content: ""; display: block; width: 0; height: 0; border: solid 4px; border-color: transparent transparent transparent #e6e6e6; }
-// .nav-bar.vertical > li .flyout { left: 100%; top: -1px; }
-// .nav-bar.vertical > li .flyout.right { left: auto; right: 100%; }
-// .nav-bar.vertical > li.active { border-right: solid 1px #2183a0; }
-// .nav-bar.vertical > li:last-child { border-bottom: solid 1px #333333; }
+/* Navigation Bar ========================================================== */
 
-.flyout { background: #f2f2f2; padding: 20px; margin: 0; border: 1px solid #d9d9d9; position: absolute; top: 39px; left: -1px; width: 250px; z-index: 40; -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* remove margin on any first-child element */ /* remove margin on last element */ }
-.flyout p { line-height: 1.2; font-size: 13px; }
-.flyout *:first-child { margin-top: 0; }
-.flyout *:last-child { margin-bottom: 0; }
-.flyout.small { width: 166.66667px; }
-.flyout.large { width: 437.5px; }
-.flyout.right { left: auto; right: -2px; }
-.flyout.left { right: auto; left: -2px; }
-.flyout.up { top: auto; bottom: 39px; }
+//@import 'foundation/navbar.less';
 
-ul.flyout, .nav-bar li ul { padding: 0; list-style: none; }
-ul.flyout li, .nav-bar li ul li { border-left: solid 3px #CCC; }
-ul.flyout li a, .nav-bar li ul li a { background: #f2f2f2; border: 1px solid #e6e6e6; border-width: 1px 1px 0 0; color: #555; display: block; font-size: 14px; height: auto; line-height: 1; padding: 15px 20px; -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; }
-ul.flyout li a:hover, ul.flyout li a:focus, .nav-bar li ul li a:hover, .nav-bar li ul li a:focus { background: #ebebeb; color: #333; }
-ul.flyout li.active, .nav-bar li ul li.active { margin-top: 0; border-top: 1px solid #4d4d4d; border-left: 4px solid #1a1a1a; }
-ul.flyout li.active a, .nav-bar li ul li.active a { background: #4d4d4d; border: none; color: #fff; height: auto; margin: 0; position: static; top: 0; -webkit-box-shadow: 0 0 0; -moz-box-shadow: 0 0 0; box-shadow: 0 0 0; }
+/* Flyout ================================================================== */
 
-/* CSS for jQuery Orbit Plugin 1.4.0 Maintained for Foundation. foundation.zurb.com Free to use under the MIT license. http://www.opensource.org/licenses/mit-license.php
-*/
-/* Container ---------------------- */
-.orbit-wrapper { width: 1px; height: 1px; position: relative; }
+@import 'foundation/flyouts.less';
 
-.orbit { width: 1px; height: 1px; position: relative; overflow: hidden; margin-bottom: 17px; }
-.orbit.with-bullets { margin-bottom: 40px; }
-.orbit .orbit-slide { max-width: 100%; position: absolute; top: 0; left: 0; }
-.orbit a.orbit-slide { border: none; line-height: 0; display: none; }
-.orbit div.orbit-slide { width: 100%; height: 100%; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; }
+/* Orbit =================================================================== */
 
-/* Note: If your slider only uses content or anchors, you're going to want to put the width and height declarations on the ".orbit>div" and "div.orbit>a" tags in addition to just the .orbit-wrapper */
-/* Timer ---------------------- */
-div.orbit-wrapper div.timer { width: 40px; height: 40px; overflow: hidden; position: absolute; top: 10px; right: 10px; opacity: .6; cursor: pointer; z-index: 31; }
-div.orbit-wrapper span.rotator { display: block; width: 40px; height: 40px; position: absolute; top: 0; left: -20px; background: url('../images/foundation/orbit/rotator-black.png') no-repeat; z-index: 3; }
-div.orbit-wrapper span.rotator.move { left: 0; }
-div.orbit-wrapper span.mask { display: block; width: 20px; height: 40px; position: absolute; top: 0; right: 0; z-index: 2; overflow: hidden; }
-div.orbit-wrapper span.mask.move { width: 40px; left: 0; background: url('../images/foundation/orbit/timer-black.png') repeat 0 0; }
-div.orbit-wrapper span.pause { display: block; width: 40px; height: 40px; position: absolute; top: 0; left: 0; background: url('../images/foundation/orbit/pause-black.png') no-repeat; z-index: 4; opacity: 0; }
-div.orbit-wrapper span.pause.active { background: url('../images/foundation/orbit/pause-black.png') no-repeat 0 -40px; }
-div.orbit-wrapper div.timer:hover span.pause, div.orbit-wrapper div.timer:focus span.pause, div.orbit-wrapper span.pause.active { opacity: 1; }
+//@import 'foundation/orbit.less';
 
-/* Captions ---------------------- */
-.orbit-caption { display: none; font-family: inherit; }
+/* Orbit =================================================================== */
 
-.orbit-wrapper .orbit-caption { background: black; background: rgba(0, 0, 0, 0.6); z-index: 30; color: white; text-align: center; padding: 7px 0; font-size: 13px; position: absolute; right: 0; bottom: 0; width: 100%; }
+//@import 'foundation/modal.less';
 
-/* Directional Nav ---------------------- */
-div.orbit-wrapper div.slider-nav { display: block; }
-div.orbit-wrapper div.slider-nav span { width: 39px; height: 50px; text-indent: -9999px; position: absolute; z-index: 30; top: 50%; margin-top: -25px; cursor: pointer; }
-div.orbit-wrapper div.slider-nav span.right { background: url('../images/foundation/orbit/right-arrow.png'); background-size: 100%; right: 0; }
-div.orbit-wrapper div.slider-nav span.left { background: url('../images/foundation/orbit/left-arrow.png'); background-size: 100%; left: 0; }
+/* Alerts ================================================================== */
 
-.lt-ie9 div.orbit-wrapper div.slider-nav span.right { background: url('../images/foundation/orbit/right-arrow-small.png'); }
-.lt-ie9 div.orbit-wrapper div.slider-nav span.left { background: url('../images/foundation/orbit/left-arrow-small.png'); }
+@import 'foundation/alerts.less';
 
-/* Bullet Nav ---------------------- */
-ul.orbit-bullets { position: absolute; z-index: 30; list-style: none; bottom: -40px; left: 50%; margin-left: -50px; padding: 0; }
-ul.orbit-bullets li { float: left; margin-left: 5px; cursor: pointer; color: #999999; text-indent: -9999px; background: url('../images/foundation/orbit/bullets.jpg') no-repeat 4px 0; width: 13px; height: 12px; overflow: hidden; }
-ul.orbit-bullets li.active { color: #222222; background-position: -8px 0; }
-ul.orbit-bullets li.has-thumb { background: none; width: 100px; height: 75px; }
-ul.orbit-bullets li.active.has-thumb { background-position: 0 0; border-top: 2px solid black; }
+/* Labels ================================================================== */
 
-/* Orbit Slide Counter */
-.orbit-slide-counter { position: absolute; bottom: 0; z-index: 99; background: rgba(0, 0, 0, 0.7); color: white; padding: 5px; }
+@import 'foundation/labels.less';
 
-/* Fluid Layout ---------------------- */
-div.orbit img.fluid-placeholder { visibility: hidden; position: static; display: block; width: 100%; }
+/* Tooltips ================================================================ */
 
-div.orbit, div.orbit-wrapper { width: 100% !important; }
+@import 'foundation/tooltips.less';
 
-/* Correct timer in IE */
-.lt-ie9 .timer { display: none !important; }
+/* Panels ================================================================== */
 
-@media only screen and (max-width: 767px) { div.orbit.orbit-stack-on-small img.fluid-placeholder { visibility: visible; }
-  div.orbit.orbit-stack-on-small .orbit-slide { position: static; margin-bottom: 10px; } }
-/* CSS for jQuery Reveal Plugin Maintained for Foundation. foundation.zurb.com Free to use under the MIT license. http://www.opensource.org/licenses/mit-license.php */
-/* Reveal Modals ---------------------- */
-.reveal-modal-bg { position: fixed; height: 100%; width: 100%; background: #000; background: rgba(0, 0, 0, 0.45); z-index: 40; display: none; top: 0; left: 0; }
-
-.reveal-modal { background: #fff; visibility: hidden; display: none; top: 100px; left: 50%; margin-left: -260px; width: 520px; position: absolute; z-index: 41; padding: 30px; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
-.reveal-modal .close-reveal-modal { font-size: 22px; font-size: 2.2rem; line-height: .5; position: absolute; top: 8px; right: 11px; color: #aaa; text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6); font-weight: bold; cursor: pointer; }
-.reveal-modal.small { width: 30%; margin-left: -15%; }
-.reveal-modal.medium { width: 40%; margin-left: -20%; }
-.reveal-modal.large { width: 60%; margin-left: -30%; }
-.reveal-modal.xlarge { width: 70%; margin-left: -35%; }
-.reveal-modal.expand { width: 90%; margin-left: -45%; }
-.reveal-modal .row { min-width: 0; margin-bottom: 10px; }
-.reveal-modal > :first-child { margin-top: 0; }
-.reveal-modal > :last-child { margin-bottom: 0; }
-
-@media print { div:not(.reveal-modal) { display: none; }
-  .reveal-modal { border: solid 1px #000; background: #fff; } }
-/* Table of Contents
-
-:: Visibility
-:: Alerts
-:: Labels
-:: Tooltips
-:: Panels
-:: Accordion
-:: Side Nav
-:: Sub Nav
-:: Pagination
-:: Breadcrumbs
-:: Lists
-:: Inline/Link Lists
-:: Keystroke Chars
-:: Image Thumbnails
-:: Video
-:: Tables
-:: Microformats
-:: Progress Bars
-:: Pricing Tables
-
-*/
-/* Alerts ---------------------- */
-div.alert-box { display: block; padding: 6px 7px 7px; font-weight: bold; font-size: 14px; color: white; background-color: #2aa5ca; border: 1px solid rgba(0, 0, 0, 0.1); margin-bottom: 12px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; text-shadow: 0 -1px rgba(0, 0, 0, 0.3); position: relative; }
-div.alert-box.success { background-color: #5da323; color: #fff; text-shadow: 0 -1px rgba(0, 0, 0, 0.3); }
-div.alert-box.alert { background-color: #c60e12; color: #fff; text-shadow: 0 -1px rgba(0, 0, 0, 0.3); }
-div.alert-box.secondary { background-color: #444444; color: black; text-shadow: 0 1px rgba(255, 255, 255, 0.3); }
-div.alert-box a.close { color: #333; position: absolute; right: 4px; top: -1px; font-size: 17px; opacity: 0.2; padding: 4px; }
-div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
-
-/* Labels ---------------------- */
-.label { padding: 1px 4px 2px; font-size: 12px; font-weight: bold; text-align: center; text-decoration: none; line-height: 1; white-space: nowrap; display: inline; position: relative; bottom: 1px; color: #fff; background: #2aa5ca; }
-.label.radius { -webkit-border-radius: 0px; -moz-border-radius: 0px; -ms-border-radius: 0px; -o-border-radius: 0px; border-radius: 0px; }
-.label.round { padding: 1px 7px 2px; -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; }
-.label.alert { background-color: #c60e12; }
-.label.success { background-color: #5da323; }
-.label.secondary { background-color: #444444; color: black; }
-
-/* Tooltips ---------------------- */
-.has-tip { border-bottom: dotted 1px #cccccc; cursor: help; font-weight: bold; color: #333333; }
-.has-tip:hover, .has-tip:focus { border-bottom: dotted 1px #186076; color: #2aa5ca; }
-.has-tip.tip-left, .has-tip.tip-right { float: none !important; }
-
-.tooltip { display: none; background: black; background: rgba(0, 0, 0, 0.85); position: absolute; color: white; font-weight: bold; font-size: 12px; padding: 5px; z-index: 999; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; line-height: normal; }
-.tooltip > .nub { display: block; width: 0; height: 0; border: solid 5px; border-color: transparent transparent black transparent; border-color: transparent transparent rgba(0, 0, 0, 0.85) transparent; position: absolute; top: -10px; left: 10px; }
-.tooltip.tip-override > .nub { border-color: transparent transparent black transparent !important; border-color: transparent transparent rgba(0, 0, 0, 0.85) transparent !important; top: -10px !important; }
-.tooltip.tip-top > .nub { border-color: black transparent transparent transparent; border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent; top: auto; bottom: -10px; }
-.tooltip.tip-left, .tooltip.tip-right { float: none !important; }
-.tooltip.tip-left > .nub { border-color: transparent transparent transparent black; border-color: transparent transparent transparent rgba(0, 0, 0, 0.85); right: -10px; left: auto; }
-.tooltip.tip-right > .nub { border-color: transparent black transparent transparent; border-color: transparent rgba(0, 0, 0, 0.85) transparent transparent; right: auto; left: -10px; }
-.tooltip.noradius { -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; }
-.tooltip.opened { color: #2aa5ca !important; border-bottom: dotted 1px #186076 !important; }
-
-.tap-to-close { display: block; font-size: 10px; font-size: 1rem; color: #888888; font-weight: normal; }
-
-/* Panels ---------------------- */
-// .panel { background: #f2f2f2; border: solid 1px #e6e6e6; margin: 0 0 22px 0; padding: 20px; }
-// .panel > :first-child { margin-top: 0; }
-// .panel > :last-child { margin-bottom: 0; }
-// .panel.callout { background: #2aa5ca; color: #fff; border-color: #2183a0; -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5); -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5); box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5); }
-// .panel.callout a { color: #fff; }
-// .panel.callout .button { background: white; border: none; color: #2aa5ca; text-shadow: none; }
-// .panel.callout .button:hover, .panel.callout .button:focus { background: rgba(255, 255, 255, 0.8); }
-// .panel.radius { -webkit-border-radius: 0px; -moz-border-radius: 0px; -ms-border-radius: 0px; -o-border-radius: 0px; border-radius: 0px; }
+@import 'foundation/panels.less';
 
 /* Accordion ---------------------- */
 // ul.accordion { margin: 0 0 22px 0; border-bottom: 1px solid #444444; }

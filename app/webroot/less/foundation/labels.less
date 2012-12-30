@@ -1,0 +1,31 @@
+.label {
+    padding: 1px 4px 2px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1;
+    white-space: nowrap;
+    display: inline;
+    position: relative;
+    bottom: 1px;
+    color: @white;
+    background: @blue;
+    &.radius {
+        .border-radius(0);
+    }
+    &.round {
+        padding: 1px 7px 2px;
+        .border-radius(1000px);
+    }
+    &.alert {
+        background-color: @red;
+    }
+    &.success {
+        background-color: @green;
+    }
+    &.secondary {
+        background-color: #444;
+        color: @black;
+    }
+}

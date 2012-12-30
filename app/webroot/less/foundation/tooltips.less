@@ -1,0 +1,76 @@
+.has-tip {
+    border-bottom: 1px dotted @grayLight;
+    cursor: help;
+    font-weight: bold;
+    color: @grayDark;
+    &:hover, &:focus {
+        border-bottom: 1px dotted #186076;
+        color: @blue;
+    }
+    &.tip-left, &.tip-right {
+        float: none !important;
+    }
+}
+.tooltip {
+    display: none;
+    background: @black;
+    background: rgba(0, 0, 0, 0.85);
+    position: absolute;
+    color: @white;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 5px;
+    z-index: 999;
+    .border-radius(4px);
+    line-height: normal;
+    > .nub {
+        display: block;
+        width: 0;
+        height: 0;
+        border: solid 5px;
+        border-color: transparent transparent @black transparent ;
+        border-color: transparent transparent rgba(0, 0, 0, 0.85) transparent;
+        position: absolute;
+        top: -10px;
+        left: 10px;
+    }
+    &.tip-override > .nub {
+        border-color: transparent transparent black transparent !important;
+        border-color: transparent transparent rgba(0, 0, 0, 0.85) transparent !important;
+        top: -10px !important;
+    }
+    &.tip-top > .nub {
+        border-color: black transparent transparent transparent;
+        border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
+        top: auto;
+        bottom: -10px;
+    }
+    &.tip-left, &.tip-right {
+        float: none !important;
+    }
+    &.tip-left > .nub {
+        border-color: transparent transparent transparent black;
+        border-color: transparent transparent transparent rgba(0, 0, 0, 0.85);
+        right: -10px;
+        left: auto;
+    }
+    &.tip-right > .nub {
+        border-color: transparent black transparent transparent;
+        border-color: transparent rgba(0, 0, 0, 0.85) transparent transparent;
+        right: auto;
+        left: -10px;
+    }
+    &.noradius { .border-radius(0px); }
+    .opened {
+        color: @blue !important;
+        border-bottom: 1px dotted #186076 !important;
+    }
+}
+
+.tap-to-close {
+    display: block;
+    font-size: 10px;
+    font-size: 1rem;
+    color: #888888;
+    font-weight: normal;
+}
