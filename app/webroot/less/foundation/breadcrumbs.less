@@ -1,0 +1,50 @@
+.breadcrumbs {
+    display: block;
+    background: #515151;
+    padding: 6px 10px 7px;
+    border: 1px solid @grayDark;
+    .border-radius(2px);
+    overflow: hidden;
+    margin-left: 0;
+    li {
+        margin: 0;
+        padding: 0 12px 0 0;
+        float: left;
+        list-style: none;
+        a, span {
+            text-transform: uppercase;
+            font-size: 11px;
+            font-size: 1.1rem;
+            padding-left: 12px;
+        }
+        &:first-child {
+            a, span { padding-left: 0; }
+        }
+        &:before {
+            content: "/";
+            color: #aaa;
+        }
+        &:first-child:before {
+            content: " ";
+        }
+        &.current {
+            a {
+                cursor: default;
+                color: @grayDark;
+            }
+            &:hover, &.current a:focus {
+                text-decoration: none;
+            }
+        }
+        &.unavailable {
+            a { color: #999; }
+            &:hover {
+                a, a:focus {
+                    text-decoration: none;
+                    color: #999;
+                    cursor: default;
+                }
+            }
+        }
+    }
+}

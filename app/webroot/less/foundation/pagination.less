@@ -1,0 +1,37 @@
+.pagination {
+    display: block;
+    height: 24px;
+    margin-left: -5px;
+    li {
+        float: left;
+        display: block;
+        height: 24px;
+        color: #999;
+        font-size: 14px;
+        margin-left: 5px;
+        a {
+            display: block;
+            padding: 1px 7px 1px;
+            color: @grayMedium;
+        }
+    }
+    li:hover a, li a:focus {
+        background: #e6e6e6;
+    }
+    li.unavailable a {
+        cursor: default;
+        color: #999;
+    }
+    li.unavailable:hover a, li.unavailable a:focus {
+        background: transparent;
+    }
+    li.current a{
+        background: @blue;
+        color: @white;
+        font-weight: bold;
+        cursor: default;
+        &:hover, &:focus {
+            background: @blue;
+        }
+    }
+}
