@@ -198,8 +198,18 @@
 
 
 
+
 // CSS3 PROPERTIES
 // --------------------------------------------------
+
+.triangle(@color: @white, @width: 6px) {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: solid @width;
+  border-color: @color transparent transparent transparent;
+}
 
 // Border Radius
 .border-radius(@radius) {
@@ -253,6 +263,13 @@
   -webkit-box-shadow: @shadow;
      -moz-box-shadow: @shadow;
           box-shadow: @shadow;
+}
+
+// Text shadows
+.text-shadow(@shadow) {
+  -webkit-text-shadow: @shadow;
+     -moz-text-shadow: @shadow;
+          text-shadow: @shadow;
 }
 
 // Transitions
@@ -382,8 +399,6 @@
   filter: ~"alpha(opacity=@{opacity})";
 }
 
-
-
 // BACKGROUNDS
 // --------------------------------------------------
 
@@ -470,7 +485,6 @@
 }
 
 
-
 // COMPONENT MIXINS
 // --------------------------------------------------
 
@@ -489,198 +503,4 @@
   overflow: hidden;
   background-color: @top;
   border-bottom: 1px solid @bottom;
-}
-
-// Button backgrounds
-// ------------------
-.buttonBackground(@startColor, @endColor, @textColor: #fff, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
-  // gradientBar will set the background to a pleasing blend of these, to support IE<=9
-  .gradientBar(@startColor, @endColor, @textColor, @textShadow);
-  *background-color: @endColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  .reset-filter();
-
-  // in these cases the gradient won't cover the background, so we override
-  &:hover, &:active, &.active, &.disabled, &[disabled] {
-    color: @textColor;
-    background-color: @endColor;
-    *background-color: darken(@endColor, 5%);
-  }
-
-  // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
-  &:active,
-  &.active {
-    background-color: darken(@endColor, 10%) e("\9");
-  }
-}
-
-// Navbar vertical align
-// -------------------------
-// Vertically center elements in the navbar.
-// Example: an element has a height of 30px, so write out `.navbarVerticalAlign(30px);` to calculate the appropriate top margin.
-.navbarVerticalAlign(@elementHeight) {
-  margin-top: (@navbarHeight - @elementHeight) / 2;
-}
-
-
-
-// Grid System
-// -----------
-
-// Centered container element
-.container-fixed() {
-  margin-right: auto;
-  margin-left: auto;
-  .clearfix();
-}
-
-// Table columns
-.tableColumns(@columnSpan: 1) {
-  float: none; // undo default grid column styles
-  width: ((@gridColumnWidth) * @columnSpan) + (@gridGutterWidth * (@columnSpan - 1)) - 16; // 16 is total padding on left and right of table cells
-  margin-left: 0; // undo default grid column styles
-}
-
-// Make a Grid
-// Use .makeRow and .makeColumn to assign semantic layouts grid system behavior
-.makeRow() {
-  margin-left: @gridGutterWidth * -1;
-  .clearfix();
-}
-.makeColumn(@columns: 1, @offset: 0) {
-  float: left;
-  margin-left: (@gridColumnWidth * @offset) + (@gridGutterWidth * (@offset - 1)) + (@gridGutterWidth * 2);
-  width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
-}
-
-// The Grid
-#grid {
-
-  .core (@gridColumnWidth, @gridGutterWidth) {
-
-    .spanX (@index) when (@index > 0) {
-      (~".span@{index}") { .span(@index); }
-      .spanX(@index - 1);
-    }
-    .spanX (0) {}
-
-    .offsetX (@index) when (@index > 0) {
-      (~".offset@{index}") { .offset(@index); }
-      .offsetX(@index - 1);
-    }
-    .offsetX (0) {}
-
-    .offset (@columns) {
-      margin-left: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns + 1));
-    }
-
-    .span (@columns) {
-      width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
-    }
-
-    .row {
-      margin-left: @gridGutterWidth * -1;
-      .clearfix();
-    }
-
-    [class*="span"] {
-      float: left;
-      min-height: 1px; // prevent collapsing columns
-      margin-left: @gridGutterWidth;
-    }
-
-    // Set the container width, and override it for fixed navbars in media queries
-    .container,
-    .navbar-static-top .container,
-    .navbar-fixed-top .container,
-    .navbar-fixed-bottom .container { .span(@gridColumns); }
-
-    // generate .spanX and .offsetX
-    .spanX (@gridColumns);
-    .offsetX (@gridColumns);
-
-  }
-
-  .fluid (@fluidGridColumnWidth, @fluidGridGutterWidth) {
-
-    .spanX (@index) when (@index > 0) {
-      (~".span@{index}") { .span(@index); }
-      .spanX(@index - 1);
-    }
-    .spanX (0) {}
-
-    .offsetX (@index) when (@index > 0) {
-      (~'.offset@{index}') { .offset(@index); }
-      (~'.offset@{index}:first-child') { .offsetFirstChild(@index); }
-      .offsetX(@index - 1);
-    }
-    .offsetX (0) {}
-
-    .offset (@columns) {
-      margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) + (@fluidGridGutterWidth*2);
-  	  *margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%) + (@fluidGridGutterWidth*2) - (.5 / @gridRowWidth * 100 * 1%);
-    }
-
-    .offsetFirstChild (@columns) {
-      margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) + (@fluidGridGutterWidth);
-      *margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%) + @fluidGridGutterWidth - (.5 / @gridRowWidth * 100 * 1%);
-    }
-
-    .span (@columns) {
-      width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1));
-      *width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%);
-    }
-
-    .row-fluid {
-      width: 100%;
-      .clearfix();
-      [class*="span"] {
-        .input-block-level();
-        float: left;
-        margin-left: @fluidGridGutterWidth;
-        *margin-left: @fluidGridGutterWidth - (.5 / @gridRowWidth * 100 * 1%);
-      }
-      [class*="span"]:first-child {
-        margin-left: 0;
-      }
-
-      // Space grid-sized controls properly if multiple per line
-      .controls-row [class*="span"] + [class*="span"] {
-        margin-left: @fluidGridGutterWidth;
-      }
-
-      // generate .spanX and .offsetX
-      .spanX (@gridColumns);
-      .offsetX (@gridColumns);
-    }
-
-  }
-
-  .input(@gridColumnWidth, @gridGutterWidth) {
-
-    .spanX (@index) when (@index > 0) {
-      (~"input.span@{index}, textarea.span@{index}, .uneditable-input.span@{index}") { .span(@index); }
-      .spanX(@index - 1);
-    }
-    .spanX (0) {}
-
-    .span(@columns) {
-      width: ((@gridColumnWidth) * @columns) + (@gridGutterWidth * (@columns - 1)) - 14;
-    }
-
-    input,
-    textarea,
-    .uneditable-input {
-      margin-left: 0; // override margin-left from core grid system
-    }
-
-    // Space grid-sized controls properly if multiple per line
-    .controls-row [class*="span"] + [class*="span"] {
-      margin-left: @gridGutterWidth;
-    }
-
-    // generate .spanX
-    .spanX (@gridColumns);
-
-  }
-
 }

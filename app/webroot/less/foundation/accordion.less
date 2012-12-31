@@ -1,0 +1,57 @@
+.accordion {
+    margin: 0 0 22px 0;
+    border-bottom: 1px solid @grayDark;
+    > li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        border-top: 1px solid @grayDark;
+        > div.title {
+            cursor: pointer;
+            background: #515151;
+            padding: 15px;
+            margin: 0;
+            position: relative;
+            border-left: 1px solid @grayDark;
+            border-right: 1px solid @grayDark;
+            .transition( 0.15s background linear);
+            h1, h2, h3, h4, h5 { margin: 0; }
+            &:after {
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border: solid 6px;
+                border-color: transparent @black transparent transparent;
+                position: absolute;
+                right: 15px;
+                top: 21px;
+            }
+        }
+        .content {
+            display: none;
+            padding: 15px;
+        }
+        &.active {
+            border-top: 3px solid @blue;
+            .title {
+                background: @white;
+                padding-top: 13px;
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border: solid 6px;
+                    border-color: @black transparent transparent transparent;
+                }
+            }
+            .content {
+                background: @white;
+                display: block;
+                border-left: 1px solid @grayDark;
+                border-right: 1px solid @grayDark;
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+.sub-nav {
+    display: block;
+    width: auto;
+    overflow: hidden;
+    margin: -4px 0 18px;
+    margin-right: 0;
+    margin-left: -9px;
+    padding-top: 4px;
+    dt, dd {
+        float: left;
+        display: inline;
+        margin-left: 9px;
+        margin-bottom: 10px;
+    }
+    dt {
+        color: #999;
+        font-weight: normal;
+    }
+    dd {
+        a {
+            text-decoration: none;
+            .border-radius(1000px);
+        }
+        &.active {
+            a {
+                font-weight: bold;
+                background: @blue;
+                color: @white;
+                padding: 3px 9px;
+                cursor: default;
+            }
+        }
+    }
+}
