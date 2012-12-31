@@ -8,33 +8,61 @@
  */
 class Attask
 {
-    private static $domain = '';
+    private $domain = '';
 
-    private static $username = '';
+    private $username = '';
 
-    private static $password = '';
+    private $password = '';
 
-    private static $apiUrl = '';
+    private $apiUrl = '';
 
-    public function __construct()
+    /**
+     * @var string sessionID returned by Attask login
+     */
+    private $sessionID = '';
+
+    /**
+     * @var string userID returned by Attask login
+     */
+    private $userID = '';
+
+    public function __construct($sessionID = null)
     {
         App::uses('HttpSocket', 'Network/Http');
 
-        self::$domain = Configure::read('attask.domain');
-        self::$username = Configure::read('attask.username');
-        self::$password = Configure::read('attask.password');
-        self::$apiUrl = "https://$this->domain/attask/api";
+        $this->domain = Configure::read('attask.domain');
+        $this->username = Configure::read('attask.username');
+        $this->password = Configure::read('attask.password');
+        $this->apiUrl = "https://$this->domain/attask/api";
+
+        if (!empty($sessionID)) {
+            $this->sessionID = $sessionID;
+        }
     }
 
     /**
      * @return array containing both sessionID and userID as keys
      * @throws Exception
      */
-    public function login()
+    public function login($username = null, $password = null)
     {
-        $result = $this->callApi('login', array('username'=>self::$username,'password'=>self::$password));
+        if (empty($username)) {
+            $username = $this->username;
+        }
+        if (empty($password)) {
+            $password = $this->password;
+        }
+        //Must send API call outside of $this->callApi as there has been no SessionID set
+        $http = new HttpSocket();
+        $response = $http->get(sprintf("%s/%s", $this->apiUrl, 'login'), array('username'=>$username,'password'=>$password));
 
+        if ($response->code != '200') {
+            throw new Exception(sprintf('Error from Attask API method with ACTION: %s and PARAMS: %s', $action, http_build_query($params)));
+        }
+        $result = json_decode($response->body, true);
         if (isset($result['data'])) {
+            $this->sessionID = $result['data']['sessionID'];
+            $this->userID = $result['data']['userID'];
             return array(
                 'sessionID' => $result['data']['sessionID'],
                 'userID' => $result['data']['userID']
@@ -51,10 +79,16 @@ class Attask
         return $result;
     }
 
-    private function callApi($action, $params)
+    private function callApi($action, $params, $sessionID = null)
     {
+        if (empty($sessionID) && !empty($this->sessionID)) {
+            $sessionID = $this->sessionID;
+        }
+        else {
+            throw new Exception('Attempt to access Attask API with no sessionID set');
+        }
         $http = new HttpSocket();
-        $headers = array('SessionID'=>$this->Session->read('attask.sessionID'));
+        $headers = array('SessionID'=>$sessionID);
         $response = $http->get(sprintf("%s/%s", $this->apiUrl, $action), $params, array('header'=>$headers));
         if ($response->code != '200') {
             throw new Exception(sprintf('Error from Attask API method with ACTION: %s and PARAMS: %s', $action, http_build_query($params)));

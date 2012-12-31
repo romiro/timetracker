@@ -39,4 +39,24 @@ class AppController extends Controller
     {
         $this->Session->setFlash($message, 'default', array(), 'error');
     }
+
+    public function beforeFilter()
+    {
+        App::uses('Attask', '');
+        $api = new Attask();
+
+        //Log in to attask and store its sessionID to the PHP session
+        try {
+            if (!$this->Session->check('attask.logged_in')) {
+                $result = $api->login();
+                if (isset($result['sessionID'])) {
+                    $this->Session->write('attask.sessionID', $result['sessionID']);
+                    $this->Session->write('attask.logged_in', true);
+                }
+            }
+        }
+        catch (Exception $e) {
+            $this->setError($e->getMessage());
+        }
+    }
 }
