@@ -416,6 +416,7 @@ input:-moz-placeholder,textarea:-moz-placeholder{font-weight:200;color:#cccccc;}
 .entry-row.active input,.entry-row.new input,.entry-row.active textarea,.entry-row.new textarea{border:1px solid #cccccc;}
 .entry-row.active .attask .prefix,.entry-row.new .attask .prefix{color:#444444;background:#f2f2f2;border-color:#cccccc;}
 .entry-row.active .comment,.entry-row.new .comment{width:363px;}.entry-row.active .comment textarea,.entry-row.new .comment textarea{height:60px;}
+.entry-row.new{margin-left:0;}
 .entry-row .alt-tasks{display:none;position:absolute;top:29px;left:-13px;z-index:999;-webkit-box-shadow:0 0 0 #000000;-moz-box-shadow:0 0 0 #000000;box-shadow:0 0 0 #000000;border:0;border-bottom:1px solid #d9d9d9;width:120px;}.entry-row .alt-tasks li{border-left-width:1px;}.entry-row .alt-tasks li a{color:#2183a0;font-size:12px;padding:8px 5px;}.entry-row .alt-tasks li a:hover{background:#2aa5ca;color:#ffffff;}
 .entry-row .attask-id{position:relative;}.entry-row .attask-id.show .alt-tasks{display:block;}
 .entry{padding:0;}.entry h2{position:relative;}.entry h2:after{content:'';position:absolute;display:block;width:60%;border-bottom:1px solid #2aa5ca;bottom:-10px;}
