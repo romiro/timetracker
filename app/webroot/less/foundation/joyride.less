@@ -1,0 +1,27 @@
+#joyRideTipContent { display: none; }
+
+/* Default styles for the container */
+.joyride-tip-guide { display: none; position: absolute; background: black; background: rgba(0, 0, 0, 0.8); color: white; width: 300px; z-index: 101; top: 0; left: 0; font-family: inherit; font-weight: normal; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; }
+
+.joyride-content-wrapper { padding: 18px 20px 24px; }
+
+/* Add a little css triangle pip, older browser just miss out on the fanciness of it */
+.joyride-tip-guide span.joyride-nub { display: block; position: absolute; left: 22px; width: 0; height: 0; border: solid 14px; }
+.joyride-tip-guide span.joyride-nub.top { border-color: black; border-color: rgba(0, 0, 0, 0.8); border-top-color: transparent !important; border-left-color: transparent !important; border-right-color: transparent !important; top: -28px; bottom: none; }
+.joyride-tip-guide span.joyride-nub.bottom { border-color: black; border-color: rgba(0, 0, 0, 0.8) !important; border-bottom-color: transparent !important; border-left-color: transparent !important; border-right-color: transparent !important; bottom: -28px; bottom: none; }
+.joyride-tip-guide span.joyride-nub.right { border-color: black; border-color: rgba(0, 0, 0, 0.8) !important; border-top-color: transparent !important; border-right-color: transparent !important; border-bottom-color: transparent !important; top: 22px; bottom: none; left: auto; right: -28px; }
+.joyride-tip-guide span.joyride-nub.left { border-color: black; border-color: rgba(0, 0, 0, 0.8) !important; border-top-color: transparent !important; border-left-color: transparent !important; border-bottom-color: transparent !important; top: 22px; left: -28px; right: auto; bottom: none; }
+
+/* Typography */
+.joyride-tip-guide h1, .joyride-tip-guide h2, .joyride-tip-guide h3, .joyride-tip-guide h4, .joyride-tip-guide h5, .joyride-tip-guide h6 { line-height: 1.25; margin: 0; font-weight: bold; color: white; }
+
+.joyride-tip-guide p { margin: 0 0 18px 0; font-size: 14px; line-height: 1.3; }
+
+.joyride-timer-indicator-wrap { width: 50px; height: 3px; border: solid 1px #555555; position: absolute; right: 17px; bottom: 16px; }
+
+.joyride-timer-indicator { display: block; width: 0; height: inherit; background: #666666; }
+
+.joyride-close-tip { position: absolute; right: 10px; top: 10px; color: #777777 !important; text-decoration: none; font-size: 20px; font-weight: normal; line-height: .5 !important; }
+.joyride-close-tip:hover, .joyride-close-tip:focus { color: #eee !important; }
+
+.joyride-modal-bg { position: fixed; height: 100%; width: 100%; background: transparent; background: rgba(0, 0, 0, 0.5); z-index: 100; display: none; top: 0; left: 0; cursor: pointer; }

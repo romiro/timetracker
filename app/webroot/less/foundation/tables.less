@@ -1,0 +1,36 @@
+table {
+    background: @white;
+    .border-radius(3px);
+    margin: 0 0 18px;
+    border: 1px solid #ddd;
+    thead, tfoot {
+        background: #f5f5f5;
+    }
+    thead tr th, tfoot tr th, tbody tr td, tr td, tr td {
+        display: table-cell;
+        font-size: 14px;
+        line-height: 18px;
+        text-align: left;
+    }
+    thead tr th, tfoot tr td {
+        padding: 8px 10px 9px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #222;
+        &:first-child {
+            border-left: 0;
+        }
+        &:last-child {
+            border-right: 0;
+        }
+    }
+    tr.even, tr.alt, tr:nth-child(even) {
+        background: #f9f9f9;
+    }
+    tr td {
+        color: #333;
+        padding: 9px 10px;
+        vertical-align: top;
+        border: 0;
+    }
+}

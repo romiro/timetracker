@@ -69,189 +69,32 @@
 @import 'foundation/inlinelinks.less';
 
 /* Keystroke Characters ===================================================== */
-.keystroke, kbd { font-family: "Consolas", "Menlo", "Courier", monospace; font-size: 13px; padding: 2px 4px 0px; margin: 0; background: #ededed; border: solid 1px #dbdbdb; -webkit-border-radius: 0px; -moz-border-radius: 0px; -ms-border-radius: 0px; -o-border-radius: 0px; border-radius: 0px; }
+@import 'foundation/keystroke.less';
 
-/* Image Thumbnails ---------------------- */
-// .th { display: block; }
-// .th img { display: block; border: solid 4px #fff; -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2); -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; -webkit-transition-property: box-shadow; -moz-transition-property: box-shadow; -o-transition-property: box-shadow; transition-property: box-shadow; -webkit-transition-duration: 300ms; -moz-transition-duration: 300ms; -o-transition-duration: 300ms; transition-duration: 300ms; }
-// .th:hover img, .th:focus img { -webkit-box-shadow: 0 0 6px 1px rgba(42, 165, 202, 0.5); -moz-box-shadow: 0 0 6px 1px rgba(42, 165, 202, 0.5); box-shadow: 0 0 6px 1px rgba(42, 165, 202, 0.5); }
+/* Media ==================================================================== */
+@import 'foundation/media.less';
 
-// /* Video - Mad props to http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/ ---------------------- */
-// .flex-video { position: relative; padding-top: 25px; padding-bottom: 67.5%; height: 0; margin-bottom: 16px; overflow: hidden; }
-// .flex-video.widescreen { padding-bottom: 57.25%; }
-// .flex-video.vimeo { padding-top: 0; }
-// .flex-video iframe, .flex-video object, .flex-video embed, .flex-video video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+/* Tables =================================================================== */
+@import 'foundation/tables.less';
 
-/* Tables ---------------------- */
-// table { background: #fff; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; margin: 0 0 18px; border: 1px solid #ddd; }
+/* Microformats ============================================================= */
+@import 'foundation/microformats.less';
 
-// table thead, table tfoot { background: #f5f5f5; }
+/* Progress Bar ============================================================= */
+@import 'foundation/progressbar.less';
 
-// table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td { display: table-cell; font-size: 14px; line-height: 18px; text-align: left; }
+/* Pricing Tables =========================================================== */
+@import 'foundation/pricingtables.less';
 
-// table thead tr th, table tfoot tr td { padding: 8px 10px 9px; font-size: 14px; font-weight: bold; color: #222; }
+/* Top Bar ================================================================== */
+@import 'foundation/topbar.less';
 
-// table thead tr th:first-child, table tfoot tr td:first-child { border-left: none; }
+/* Joy Ride ================================================================= */
+@import 'foundation/joyride.less';
 
-// table thead tr th:last-child, table tfoot tr td:last-child { border-right: none; }
 
-// table tbody tr.even, table tbody tr.alt { background: #f9f9f9; }
 
-// table tbody tr:nth-child(even) { background: #f9f9f9; }
 
-// table tbody tr td { color: #333; padding: 9px 10px; vertical-align: top; border: none; }
-
-/* Microformats ---------------------- */
-// ul.vcard { display: inline-block; margin: 0 0 12px 0; border: 1px solid #ddd; padding: 10px; }
-// ul.vcard li { margin: 0; display: block; }
-// ul.vcard li.fn { font-weight: bold; font-size: 15px; }
-
-// p.vevent span.summary { font-weight: bold; }
-// p.vevent abbr { cursor: default; text-decoration: none; font-weight: bold; border: none; padding: 0 1px; }
-
-/* Progress Bar ---------------------- */
-div.progress { padding: 2px; margin-bottom: 10px; border: 1px solid #cccccc; height: 25px; /* meter */ /* border radii */ }
-div.progress .meter { background: #2aa5ca; height: 100%; display: block; width: 50%; }
-div.progress.secondary .meter { background: #444444; }
-div.progress.success .meter { background: #5da323; }
-div.progress.alert .meter { background: #c60e12; }
-div.progress.radius { -webkit-border-radius: 0px; -moz-border-radius: 0px; -ms-border-radius: 0px; -o-border-radius: 0px; border-radius: 0px; }
-div.progress.radius .meter { -webkit-border-radius: 2px; -moz-border-radius: 2px; -ms-border-radius: 2px; -o-border-radius: 2px; border-radius: 2px; }
-div.progress.round { -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; }
-div.progress.round .meter { -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; }
-
-/* Pricing Tables ---------------------- */
-// .pricing-table { border: solid 1px #dddddd; margin-left: 0; margin-bottom: 20px; }
-// .pricing-table * { list-style: none; line-height: 1; }
-// .pricing-table .title { background-color: #dddddd; padding: 15px 20px; text-align: center; color: #333333; font-weight: bold; font-size: 16px; }
-// .pricing-table .price { background-color: #eeeeee; padding: 15px 20px; text-align: center; color: #333333; font-weight: normal; font-size: 20px; }
-// .pricing-table .description { background-color: white; padding: 15px; text-align: center; color: #777777; font-size: 12px; font-weight: normal; line-height: 1.4; border-bottom: dotted 1px #dddddd; }
-// .pricing-table .bullet-item { background-color: white; padding: 15px; text-align: center; color: #333333; font-size: 14px; font-weight: normal; border-bottom: dotted 1px #dddddd; }
-// .pricing-table .cta-button { background-color: whitesmoke; text-align: center; padding: 20px; }
-
-/* Foundation Top Bar
- Requires: -jquery.foundation.topbar.js
- Notes: - <nav class="top-bar"> can have .fixed added to make it stick to the top of viewport. Can add .contain-to-grid to top-bar to make it full width but content on grid. - <li class="name"> creates a branding area that can be linked to homepage - Can include text, image or both inside this <li>. - <li class="divider"> creates a divider between nav items, add margins for space - <li class="search"> Needs to hold a <form> which can use .row.collapse and pre/postfix buttons or default type="search"
-*/
-/* Element that controls breakpoint, no need to change this ever */
-.top-bar-js-breakpoint { width: 940px !important; visibility: hidden; }
-
-/* Wrapped around .top-bar to contain to grid width */
-.contain-to-grid { width: 100%; background: #222222; }
-
-/* Wrapped around .top-bar to make it fixed at the top */
-
-.fixed { width: 100%; left: 0; position: fixed; top: 0; z-index: 99;
-  &.gray { background: @gray; }
-}
-
-/* <nav> */
-.top-bar { background: @gray; height: 45px; line-height: 45px; margin: 0 0 0; padding: 0; width: 100%; position: relative; }
-.contain-to-grid .top-bar { max-width: 940px; margin: 0 auto; }
-.top-bar > ul .name {
-  background: @blue;
-  h1 {
-    line-height: 45px;
-    margin: 0;
-    a {
-      padding: 0 22.5px;
-      font-weight: 200 !important;
-      font-size: 18px !important;
-    }
-    img { margin-top: -5px; vertical-align: middle; }
-  }
-}
-.top-bar.expanded { height: inherit; }
-.top-bar ul { margin-left: 0; display: inline; height: 45px; line-height: 45px; list-style: none; /* Main Navigation links style */ /* Left Side <ul> */ /* Right Side <ul> */ }
-.top-bar ul > li {
-  float: left;
-  &.tagline {
-    padding: 0 22.5px;
-    color: @grayLight;
-    font-size: 12px;
-    &:hover {
-      background: @gray !important;
-    }
-  }
-}
-.top-bar ul > li a:not(.button) { color: white; display: block; font-size: 13px; font-weight: bold; height: 45px; line-height: 45px; padding: 0 15px; }
-.top-bar ul > li:not(.name):hover, .top-bar ul > li:not(.name).active, .top-bar ul > li:not(.name):focus { background: black; }
-.top-bar ul > li:not(.name):hover a, .top-bar ul > li:not(.name).active a, .top-bar ul > li:not(.name):focus a { color: #d9d9d9; }
-.top-bar ul > li.divider { background: black; -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1); -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1); box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1); height: 100%; margin-right: 1px; width: 1px; }
-.top-bar ul > li.has-button a.button { margin: 0 11.25px; }
-.top-bar ul > li.has-button:hover, .top-bar ul > li.has-button:focus { background: #222222; }
-.top-bar ul > li.has-button:hover a, .top-bar ul > li.has-button:focus a { color: #fff; }
-.top-bar ul > li.search { padding: 0 15px; }
-.top-bar ul > li.search form { display: inline-block; margin-bottom: 0; vertical-align: middle; width: 200px; }
-.top-bar ul > li.search form input[type=text] { -moz-border-radius-topright: 0; -webkit-border-top-right-radius: 0; border-top-right-radius: 0; -moz-border-radius-bottomright: 0; -webkit-border-bottom-right-radius: 0; border-bottom-right-radius: 0; float: left; font-size: 13px; margin-top: -1px; height: 22.5px; }
-.top-bar ul > li.search form input[type=text] + .button { border-left: none; -moz-border-radius-topleft: 0; -webkit-border-top-left-radius: 0; border-top-left-radius: 0; -moz-border-radius-bottomleft: 0; -webkit-border-bottom-left-radius: 0; border-bottom-left-radius: 0; float: left; font-size: 12px; margin-top: -1px; padding: 5px 12px 4px; }
-.top-bar ul > li.search form input[type=search] { font-size: 16px; margin-bottom: 0; }
-.top-bar ul > li.search:hover, .top-bar ul > li.search:focus { background: #222222; }
-.top-bar ul > li.toggle-topbar { display: none; }
-.top-bar ul > li.has-dropdown { position: relative; /* Dropdown Level 2+ */ }
-.top-bar ul > li.has-dropdown:hover > .dropdown, .top-bar ul > li.has-dropdown:focus > .dropdown { display: block; visibility: visible; }
-.top-bar ul > li.has-dropdown a { padding-right: 33.75px; }
-.top-bar ul > li.has-dropdown a:after { content: ""; display: block; width: 0; height: 0; border: solid 5px; border-color: white transparent transparent transparent; margin-right: 15px; margin-top: -2.5px; position: absolute; right: 0; top: 50%; }
-.top-bar ul > li.has-dropdown .dropdown { background: #222222; left: 0; margin: 0; padding: 9px 0 0 0; position: absolute; visibility: hidden; z-index: 99; }
-.top-bar ul > li.has-dropdown .dropdown li { background: #222222; line-height: 1; min-width: 100%; padding-bottom: 5px; }
-.top-bar ul > li.has-dropdown .dropdown li a { color: white; font-weight: normal; height: 100%; line-height: 1; padding: 5px 17px 5px 15px; white-space: nowrap; }
-.top-bar ul > li.has-dropdown .dropdown li a:after { border: none; }
-.top-bar ul > li.has-dropdown .dropdown li a:hover, .top-bar ul > li.has-dropdown .dropdown li a:focus { background: #3c3c3c; }
-.top-bar ul > li.has-dropdown .dropdown li label { color: #6f6f6f; font-size: 10px; font-weight: bold; margin: 0; padding-left: 15px; text-transform: uppercase; }
-.top-bar ul > li.has-dropdown .dropdown li.divider { border-top: solid 1px black; -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset; -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset; height: 10px; padding: 0; width: 100%; }
-.top-bar ul > li.has-dropdown .dropdown li:last-child { padding-bottom: 10px; }
-.top-bar ul > li.has-dropdown .dropdown li.active a { background: black; }
-.top-bar ul > li.has-dropdown .dropdown li.has-dropdown > a { padding-right: 30px; }
-.top-bar ul > li.has-dropdown .dropdown li.has-dropdown > a:after { border: none; content: "\00bb"; right: 5px; top: 6px; }
-.top-bar ul > li.has-dropdown .dropdown li.has-dropdown .dropdown { position: absolute; left: 100%; top: 0; }
-.top-bar ul > li.has-dropdown .dropdown li.has-dropdown:hover > .dropdown, .top-bar ul > li.has-dropdown .dropdown li.has-dropdown:focus > .dropdown { display: block; }
-.top-bar ul.left { float: left; width: auto; margin-bottom: 0; }
-.top-bar ul.right { float: right; width: auto; margin-bottom: 0; /* Dropdown Right Side Alignment */ }
-.top-bar ul.right .has-dropdown .dropdown { left: auto; right: -1px; }
-.top-bar ul.right .has-dropdown .dropdown li.has-dropdown > .dropdown { right: 100%; left: auto; width: 100%; }
-.top-bar .js-generated { display: none; }
-
-/* Firefox Fixes */
-@-moz-document url-prefix() { .top-bar ul li .button.small { padding-bottom: 6px; }
-  .top-bar ul li.search form input[type=search] { font-size: 14px; height: 22px; padding: 3px; } }
-
-/* IE8 Fixes */
-.lt-ie9 .top-bar ul li a { color: white; display: block; font-weight: bold; font-size: 13px; height: 45px; line-height: 45px; padding: 0 15px; }
-.lt-ie9 .top-bar ul li a.button { height: auto; line-height: 30px; margin-top: 7px; }
-.lt-ie9 .top-bar ul li a:hover, .lt-ie9 .top-bar ul li a:focus { color: #cccccc; }
-.lt-ie9 .top-bar ul li a img { margin-top: -5px; vertical-align: middle; }
-.lt-ie9 .top-bar ul li a.active { background: #151515; color: #d9d9d9; }
-
-.lt-ie9 .top-bar ul li.has-dropdown { padding-right: 33.75px; }
-.lt-ie9 .top-bar ul li.has-dropdown > ul li { padding-right: 0; }
-
-#joyRideTipContent { display: none; }
-
-/* Default styles for the container */
-.joyride-tip-guide { display: none; position: absolute; background: black; background: rgba(0, 0, 0, 0.8); color: white; width: 300px; z-index: 101; top: 0; left: 0; font-family: inherit; font-weight: normal; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; }
-
-.joyride-content-wrapper { padding: 18px 20px 24px; }
-
-/* Add a little css triangle pip, older browser just miss out on the fanciness of it */
-.joyride-tip-guide span.joyride-nub { display: block; position: absolute; left: 22px; width: 0; height: 0; border: solid 14px; }
-.joyride-tip-guide span.joyride-nub.top { border-color: black; border-color: rgba(0, 0, 0, 0.8); border-top-color: transparent !important; border-left-color: transparent !important; border-right-color: transparent !important; top: -28px; bottom: none; }
-.joyride-tip-guide span.joyride-nub.bottom { border-color: black; border-color: rgba(0, 0, 0, 0.8) !important; border-bottom-color: transparent !important; border-left-color: transparent !important; border-right-color: transparent !important; bottom: -28px; bottom: none; }
-.joyride-tip-guide span.joyride-nub.right { border-color: black; border-color: rgba(0, 0, 0, 0.8) !important; border-top-color: transparent !important; border-right-color: transparent !important; border-bottom-color: transparent !important; top: 22px; bottom: none; left: auto; right: -28px; }
-.joyride-tip-guide span.joyride-nub.left { border-color: black; border-color: rgba(0, 0, 0, 0.8) !important; border-top-color: transparent !important; border-left-color: transparent !important; border-bottom-color: transparent !important; top: 22px; left: -28px; right: auto; bottom: none; }
-
-/* Typography */
-.joyride-tip-guide h1, .joyride-tip-guide h2, .joyride-tip-guide h3, .joyride-tip-guide h4, .joyride-tip-guide h5, .joyride-tip-guide h6 { line-height: 1.25; margin: 0; font-weight: bold; color: white; }
-
-.joyride-tip-guide p { margin: 0 0 18px 0; font-size: 14px; line-height: 1.3; }
-
-.joyride-timer-indicator-wrap { width: 50px; height: 3px; border: solid 1px #555555; position: absolute; right: 17px; bottom: 16px; }
-
-.joyride-timer-indicator { display: block; width: 0; height: inherit; background: #666666; }
-
-.joyride-close-tip { position: absolute; right: 10px; top: 10px; color: #777777 !important; text-decoration: none; font-size: 20px; font-weight: normal; line-height: .5 !important; }
-.joyride-close-tip:hover, .joyride-close-tip:focus { color: #eee !important; }
-
-.joyride-modal-bg { position: fixed; height: 100%; width: 100%; background: transparent; background: rgba(0, 0, 0, 0.5); z-index: 100; display: none; top: 0; left: 0; cursor: pointer; }
 
 .clearing-blackout { background: black; background: rgba(0, 0, 0, 0.8); position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 999; }
 .clearing-blackout .clearing-close { display: block; }
@@ -497,6 +340,7 @@ table.show-for-xlarge, table.show-for-large, table.hide-for-small, table.hide-fo
   /* Tooltips */
   .tooltip { font-size: 14; line-height: 1.4; padding: 7px 10px 9px 10px; left: 50% !important; max-width: 80% !important; margin-left: -40%; font-size: 110%; }
   .tooltip > .nub, .tooltip.top > .nub, .tooltip.left > .nub, .tooltip.right > .nub { border-color: transparent transparent black transparent; border-color: transparent transparent rgba(0, 0, 0, 0.85) transparent; top: -12px; left: 10px; } }
+
 /* Topbar Specific Breakpoint that you can customize */
 @media only screen and (max-width: 940px) { .top-bar { margin-bottom: 0; overflow: hidden; height: 45px; background: #222222; /* Override contain to grid stuff for breakpoint */ /* Setting up the sliding area */ /* When the Small Nav is Showing */ }
   .top-bar .js-generated { display: block; }
